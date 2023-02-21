@@ -1,0 +1,65 @@
+<!-- First div for defining general header -->
+<div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Responsive Header</title>
+
+</div>
+<!-- Second div for defining the exact header -->
+<div class="bg-gray-400 font-sans leading-normal tracking-normal">
+  <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-2 fixed w-full z-10 top-0">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <a class="text-white no-underline hover:text-white hover:no-underline" href="#">
+        <span class="text-2xl pl-2 font-semibold"><i class="em em-grinning"></i> Platforma IMS</span>
+      </a>
+    </div>
+    <div class="block lg:hidden">
+      <button id="nav-toggle"
+        class="flex items-center px-3 py-2 border-2 rounded text-gray-500 border-gray-600 hover:text-white hover:border-white"
+        type="button" (click)="toggleNavbar()">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        </svg>
+      </button>
+    </div>
+    <!-- Defining of the navigation option as a list of all of them -->
+    <div [ngClass]="{'hidden': !showMenu, 'flex': showMenu}"
+      class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+      <ul class="list-reset lg:flex justify-end flex-1 items-center">
+        <li [class.active]="isSectionActive(1)"
+          class="nav-item mr-3 cursor-pointer focus:outline-white  focus:border-white-300">
+          <a (click)="toElement(1)"
+            class="nav-link inline-block py-2 px-4 text-white no-underline transition duration-500 ease-in-out hover:bg-yellow-600 transform hover:-translate-y-1 hover:scale-110"
+            fragment="1" routerLink="/home">Úvod</a>
+        </li>
+        <li [class.active]="isSectionActive(2)" class="nav-item mr-3 cursor-pointer">
+          <a (click)="toElement(2)"
+            class="nav-link inline-block py-2 px-4 text-white no-underline transition duration-500 ease-in-out hover:bg-yellow-600 transform hover:-translate-y-1 hover:scale-110"
+            fragment="2" routerLink="/home">IMS</a>
+        </li>
+        <li [class.active]="isSectionActive(3)" class="nav-item mr-3 cursor-pointer">
+          <a (click)="toElement(3)"
+            class="nav-link inline-block py-2 px-4 text-white no-underline transition duration-500 ease-in-out hover:bg-yellow-600 transform hover:-translate-y-1 hover:scale-110"
+            fragment="3" routerLink="/home">História</a>
+        </li>
+        <li [class.active]="isSectionActive(4)" class="nav-item mr-3 cursor-pointer">
+          <a (click)="toElement(4)"
+            class="nav-link inline-block py-2 px-4 text-white no-underline transition duration-500 ease-in-out hover:bg-yellow-600 transform hover:-translate-y-1 hover:scale-110"
+            fragment="4" routerLink="/home">Architektúra</a>
+        </li>
+        <li [class.active]="isSectionActive(5)" class="nav-item mr-3 cursor-pointer">
+          <a (click)="toElement(5)"
+            class="nav-link inline-block py-2 px-4 text-white no-underline transition duration-500 ease-in-out hover:bg-yellow-600 transform hover:-translate-y-1 hover:scale-110"
+            fragment="5" routerLink="/home">Služby</a>
+        </li>
+        <li [class.active]="isSectionActive(6)" class="nav-item mr-3 cursor-pointer">
+          <a (click)="toElement(6)"
+            class="nav-link inline-block py-2 px-4 text-white no-underline transition duration-500 ease-in-out hover:bg-yellow-600 transform hover:-translate-y-1 hover:scale-110"
+            fragment="5" routerLink="/home">Kontakt</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

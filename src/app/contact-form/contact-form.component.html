@@ -1,0 +1,45 @@
+<!-- Defined contact form used in web in html lagnuage -->
+<div class="container">
+    <h2 class="text-center mb-5">
+        V prípade otázok k téme IP multimediálny podsystém ma neváhajte kontaktovať.
+    </h2>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)">
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="email" class="form-control" name="Email" aria-describedby="emailHelp" placeholder="Napíšte email" formControlName="Email" />
+                    <small id="emailHelp" class="form-text text-muted">Váš email je v bezpečí a nikdy nebude zverejnený.</small
+          >
+        </div>
+        <div class="form-group">
+          <label for="fullname">Meno a Priezvisko</label>
+          <input
+            type="text"
+            class="form-control"
+            name="Fullname"
+            placeholder="Napíšte meno a priezvisko"
+            formControlName="Fullname"
+          />
+        </div>
+        <div class="form-group">
+          <label for="comment">Komentár/Otázka</label>
+          <textarea
+            class="form-control"
+            formControlName="Comment"
+            name="Comment"
+          >
+          </textarea>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary margin-auto"
+          [disabled]="!FormData.valid"
+          data-target="#modal"
+        >
+          Poslať
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

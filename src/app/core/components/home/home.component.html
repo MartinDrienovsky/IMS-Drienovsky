@@ -1,0 +1,519 @@
+<!-- Whole Body of html file. All text material. Main component referenced to app.component.html -->
+<app-header id="header"></app-header>
+<div class="container mx-auto">
+
+  <div>
+
+    <section id="1">
+      <div>
+        <div class="uvod text-center">
+          <h1 class="text-5xl rounded-full py-3 px-6 my-8">
+            Úvod do sietí IMS
+          </h1>
+        </div>
+        <div class="uvod1">
+          <p class="font-sans font-semibold text-justify">Základným predpokladom pre rozvoj a vývoj technológií je
+            komunikácia. Tá sa v poslednej dobe preniesla z
+            telekomunikačnej a počítačovej siete do takzvanej jednej konvergovanej siete založenej na IP (Internet
+            Protocol).
+            Takáto konvergovaná sieť vychádza z konceptu NGN (Next-Generation Network), ktorý bol zavedený s cieľom
+            zohľadniť novú situáciu a zmeny v telekomunikačných oblastiach. Túto novú situáciu charakterizuje niekoľko
+            aspektov: deregulácia trhov, nový dopyt používateľov po inovatívnych službách, ktoré uspokoja ich potreby, a
+            obrovský nárast digitálneho prenosu (zvýšenie používania internetu). Zavedenie NGN obsahuje ekonomické a
+            technické aspekty. Takouto sieťou novej generácie je aj IMS platforma.
+            Vzhľadom na súčasný trend v telekomunikačnom priemysle smerom k prepínaniu dátových paketov (tzv. prístup
+            all-IP) hrá IMS (IP Multimedia Subsystem) kľúčovú úlohu ako platforma poskytujúca služby v sieťach novej
+            generácie. IMS je štruktúra pre poskytovanie multimediálnych služieb na základe IP. Môže poskytovať
+            multimediálne služby bez ohľadu na typ prístupovej siete pomocou signalizácie založenej na SIP (Session
+            Initiation Protocol). V architektúre IMS možno služby vytvárať, riadiť a upravovať bez ohľadu na typy sietí
+            a
+            platforiem, na ktorých sú postavené. Poskytovanie multimediálnych služieb v sieťach s prepínaním paketov je
+            dnes jedným z najaktívnejších výskumných a štandardizačných snáh a predstavuje najpravdepodobnejší vývoj
+            súčasných telekomunikačných sietí.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="2" style="margin-top: 10px">
+      <div>
+        <div class="imskoncept1 text-center">
+          <h1 class="text-5xl rounded-full py-3 px-6 my-8">
+            IMS
+          </h1>
+        </div>
+        <div class="imskoncept text-justify">
+          <p>IMS je platforma, ktorá umožňuje prístup k IP multimediálnym službám z ktoréhokoľvek terminálu. Bol
+            štandardizovaný už v 3GPP. IP multimediálny podsystém sa skladá z dvoch častí - podsystému IP-CAN (IP
+            Connectivity Access Networks) a IM-CN (IP Multimedia Core Network). IPCAN pozostáva zo základnej mobilnej
+            siete a pridružených rádiových prístupových sietí (napr. EPS, GPRS s UTRAN). IM-CN pozostáva zo všetkých
+            prvkov CN, ktoré sú potrebné na poskytovanie týchto multimediálnych služieb predplatiteľom. Tieto
+            multimediálne služby zahŕňajú hlasové, obrazové a textové správy, dátové a webové technológie pre
+            používateľov
+            drôtových aj bezdrôtových sietí. IP je transportný protokol používaný na prístup do siete IMS. Cieľom vývoja
+            IMS bolo štandardizovať spôsob prístupu k rôznym multimediálnym a hlasovým aplikáciám z káblového alebo
+            bezdrôtového terminálu v celom priemysle. IMS je schopný komunikovať so starou sieťou a odovzdávať hovory
+            oboma smermi podľa požiadaviek. IMS uspokojuje dva druhy požiadaviek na trhu. Prvá, poskytovanie
+            štandardizovaných služieb, ktoré umožňujú dvom používateľom pripojenie bez akýchkoľvek obmedzení zo strany
+            operátorov. Druhá, poskytujúca užívateľovi inovatívne a diferencované služby. IMS je schopný pri používaní
+            svojich služieb zaručiť určitú kvalitu služieb – QoS (Quality Of Service). Ako hlavný signalizačný protokol
+            sa
+            používa protokol SIP (Session Initiation Protocol). SIP sa využíva v rôznych sieťových prvkoch na plnenie
+            rôznych rolí týkajúcich sa spúšťania služieb, autentifikácie a autorizácie, vyvolania prostriedkov mediálnej
+            roviny a ďalších základných sieťových vlastností.</p><br>
+        </div>
+        <div class="imskoncept2">
+          <br>
+          <img class="mx-auto md:object-scale-down" src="assets/Images/riadiacaaužívatelskarovina.png"
+            alt="Riadiaca a užívateľská rovina"><br>
+        </div>
+        <div class="imskoncept3 text-justify">
+          IMS svojou architektúrou umožňuje mať samostatnú riadiacu rovinu a užívateľskú rovinu (znázornené na obrázku
+          1).
+          Aj vďaka oddeleniu riadiacej roviny od užívateľskej dokáže IMS poskytovať veľkú flexibilitu vzhľadom na
+          poskytovanie aplikačných služieb. Správy SIP sa prenášajú cez riadiacu rovinu cez MME (Mobility Management
+          Entity) a MSC (Mobile Switching Centre). Každý mediálny tok ako je napríklad hlas alebo video využíva protokol
+          RTP (Real-Time Transport Protocol), ktorý je prenášaný cez rovinu užívateľa. Užitočne informácie (tzv. payload
+          )
+          prechádzajú od UE (User Equipment) cez PDN-GW (Packet Data Network Gateway) priamo do zodpovedajúcej brány v
+          jadre IMS. Payload nikdy neprechádza cez MME a MSC. CSCF (Call Session Control Function) je zodpovedné za
+          zabezpečenie pripojenia medzi dvoma užívateľmi a nachádza sa v jadre IMS. Medzi základné služby IMS patria
+          hlasové či video-hovory, videokonferencie, zdieľanie súborov, okamžité správy (IM), prezenčná služba a SMS
+          (Short Message Service). IM-CN sa nachádza na riadiacej vrstve pričom ponúkané komunikačné služby sa
+          nachádzajú
+          na aplikačnej vrstve. V závislosti na daných požiadavkách sa príslušná komunikačná služba zavolá
+          prostredníctvom
+          SIP-AS (SIP- Application Server) a bude poskytnutá užívateľovi.
+        </div>
+      </div>
+    </section>
+    <section id="3" style="margin-top: 10px">
+      <div>
+        <h1 class="text-5xl text-center rounded-full py-3 px-6 my-8">
+          História IMS
+        </h1>
+        <div class="historia text-justify">
+          <p>Prvý koncept INs (Intelligent Networks) bol vyvinutý už v roku 1980, ktorý je predchodcom NGN. Tento
+            prechod
+            zo sietí prepájania okruhov na paketové siete trval približne 15 rokov. Na štandardizácii NGN a IMS sa
+            podieľalo viacero medzinárodných organizácii. Najvýznamnejšie organizácie, ktoré definovali IMS sú ETSI,
+            3GPP,
+            Parley Group, JCP a IETF.</p>
+        </div>
+        <h2 class="text-3xl text-center my-6"> 3GPP štandardizácia
+        </h2>
+        <div class="historia1 text-justify">
+          <p>V roku 1988 bolo založené 3GPP (The 3rd Generation Partnership Project), ktorého úloha bola vymedziť 3G
+            mobilný systém. Prvým vydaním 3GPP bol Release 99 z roku 1999, čo bol počiatok vývoja IMS. Pričom niektoré
+            špecifikácie boli dokončené až v roku 2001. 3GPP vyvinula služby, rádiové prístupy W-CDMA (Wideband Code
+            Division Multiple Access) a TD-CDMA (Time Division/Code Division Multiple Access), architektúru systému a
+            základnú spoločnú sieť. Po release 99 nasledoval Release 2000, v ktorom bolo definované IMS. Tento Release
+            bol
+            rozdelený na Release 4 a Release 5. Najvýznamnejšie funkcie, ktoré priniesol Release 4 sú koncept mediálnej
+            brány MGW (Server Media Gateway), koncept mobilného prepájacieho centra MSC, posielanie multimediálnych
+            správ,
+            IP prenos dát a inovácia lokalizačných služieb LCS (Location Services). Ukončenie Release 4 bolo v roku 2001
+            aj keď v roku 2002 boli ešte pridané zlepšenia kompatibility, ktoré boli nevyhnutné pre rádiové rozhranie.
+            Release 5 a 6 definovali IMS na báze IP ako nezávislú od prístupovej siete a IMS vytvorilo jadro základnej
+            IP
+            siete. Release 7 bol dokončený v roku 2006 a pridal funkcie AGCF (Access Gateway Control Function) a PES
+            (PSTN
+            Emulation Service), ktoré umožnujú prepojenie starších generácií sietí a nových IP sietí. Priniesol aj veľmi
+            podstatné rozšírenie vysokorýchlostných dátových prenosov z HSPA (High-Speed Packet Access) na HSPA+ pre
+            vyššie prenosové rýchlosti. Release 8 priniesol podpru pre LTE (Long Term Evolution) a SAE (System
+            Architecture Evolution). Následne Release 9, 10, 11, pridali podporu rôznym službám ako sú núdzové volania
+            pomocou IMS, núdzové relácie pre IMS alebo aj službu pre prijatie a doručenie SMS. Release 12 a 13 pridal
+            známu službu pre PTT (Push-To-Talk) pre LTE v roku 2015. Release 14 opravil nedostatky pre PTT a zaručil
+            určitú QoS. Release 15 priniesol nové rádiové špecifikácie pre 5G sieť. Následne Release 16, 17 a 18
+            pracovali
+            na dokončení všetkých dodatkov pre čo najlepšiu súčinnosť IMS v 5G sieti.</p>
+        </div>
+        <h2 class="text-3xl text-center my-6"> ETSI štandardizácia
+        </h2>
+        <div class="historia2 text-justify">
+          <p>ETSI (European Telecommunications Standards Institute) je nezavislá, štandardizačná organizácia v odvetví
+            informačných a komunikačných technológií priemyslu, ktorý spĺňa európske a globálne potreby trhu. Na konci
+            80-tych rokov ETSI definovala GSM (Global System for Mobile Communications), čo je najpopulárnejší svetový
+            štandard pre mobilné telefóny. Tak ako GSM ETSI definovala aj sieťovú architektúru GPRS (General Packet
+            Radio
+            Service). Táto služba umožňuje odosielať a prijímať dáta v paketovom režime. ETSI organizácia pracovala
+            najmä
+            na štandardoch pre fixné siete NGN.
+            Prvým balíkom štandardov pre NGN siete bol NGN Release 1. V tomto balíku bolo veľké množstvo štandardov
+            potrebných pre ďalší vývoj, testovanie a implementáciu prvej generácie NGN systémov. Potvrdil a prijal 3GPP
+            IMS štandard pre viaceré aplikácie a podsystémy na spracovanie aplikácií, ktoré boli založené a vyvinuté na
+            SIP protokole. NGN Release 2 priniesol IPTV (Internet Protocol Television) pre IMS. Toto IPTV bolo
+            definované
+            pre použitie v domácich sieťach, boli definované zariadenia, pre používanie služby IPTV a stým aj prístupové
+            body a architektúra spojenia. Nasledujúci Release 3 priniesol vylepšenia predchádzajúcich verzií IPTV ako je
+            napríklad pridávanie reklám a roaming.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="4" style="margin-top: 10px">
+      <div>
+        <div>
+          <h1 class="text-5xl text-center rounded-full py-3 px-6 my-8">
+            Architektúra IMS
+          </h1>
+        </div>
+        <div class="arch text-justify">
+          <p>IMS architektúra, ako ju definujú štandardy 3GPP, je kompletne paketové jadro siete, ktorá vytvára
+            prístupové
+            prostredie k poskytovaniu širokej skaly multimediálnych služieb, ku ktorým ma používateľ prístup pomocou
+            ľubovoľného zariadenia alebo sieťového pripojenia. Vďaka využitiu protokolu SIP, IMS podporuje IP relácie
+            cez
+            akékoľvek káblové pripojenie (napríklad DSL pripojovacie a predlžovacie káble) alebo bezdrôtové sieťové
+            pripojenie (napríklad Wi-Fi, GSM alebo CDMA). IMS je architektúrou odlišný od NGN tým, že sa neskladá zo
+            štyroch vrstiev ale len z troch. Vrstvový model vyzerá teda tak, že obsahuje aplikačnú vrstvu, vrstvu
+            riadenia
+            a transportnú vrstvu (transportná vrstva vznikla zlúčením transportnej a prístupovej vrstvy). </p>
+        </div>
+        <h2 class="text-3xl text-center my-6">Vrstvy IMS architektúry</h2>
+        <div class="arch1 text-justify">
+          <p>Architektúra IP multimediálneho podsystému je rozdelená do troch základných od seba navzájom nezávislých
+            logických vrstiev:<br>
+        </div>
+        <div class="font-semibold">
+          - Transportná vrstva<br>
+          - Riadiaca vrstva<br>
+          - Aplikačná vrstva<br>
+        </div>
+        <div class="imsarch2">
+          <br>
+          <img class="mx-auto md:object-scale-down" src="assets/Images/VrstvyIMSarchitektúry.png"
+            alt="Vrstvy IMS architektúry"><br>
+        </div>
+        <div class="arch2 text-justify">
+          <p><b>Transportná vrstva</b> spája prístupové technológie s jadrom siete. Využíva sa DHCP (Dynamic Host
+            Configuration
+            Protocol) pre automatizáciu procesu konfigurácie zariadení v IP sieťach a zároveň umožňuje registráciu
+            užívateľa pre spojenie sa s ostatnými vrstvami. Transportná vrstva je zodpovedná za začatie a ukončenie SIP
+            signalizácie, kde jej cieľom je vytvoriť prenosovú cestu medzi prístupovým zariadením a jadrom IMS
+            siete.<br>
+            <b>Riadiaca vrstva</b> zahŕňa servery na riadenie siete a správu hovorov. Zabezpečuje funkcie, ktorých
+            úlohou je
+            poskytnúť registráciu koncových bodov relácie. Jednou z funkcii je aj smerovanie alebo presmerovanie
+            signalizačných správ SIP na príslušný aplikačný server. Ďalšou funkciou je inteligentné riadenie prístupu,
+            ktoré je potrebné pre efektívnu správu a zabezpečenie siete. Takýto inteligentný sled postupov má skratku
+            AAA
+            (Authentication Authorization Accounting) a definuje, že užívateľ musí byť na začiatok autentifikovaný,
+            potom
+            musí mať udelený prístup do siete a nakoniec sa zhromaždia všetky potrebné informácie na fakturáciu
+            užívateľa.
+            Zároveň zaručuje požadovanú kvalitu poskytovaných služieb. Dva hlavné prvky riadiacej vrstvy, ktoré
+            vykonávajú
+            tieto funkcie sú CSCF (Call Session Control Function) a HSS (Home Subscriber Server).<br>
+            <b>Aplikačná vrstva</b> využíva aplikačné servery na poskytovanie rôznych služieb pre koncového účastníka.
+            Hlavnou
+            entitou tejto vrstvy je AS (Application Server), MRFC (Multimedia Resource Function Controller) a MRFP
+            (Multimedia Resource Function Processor). Pričom AS je zodpovedný za vykonávanie logiky špecifickej pre danú
+            službu, zatiaľ čo MRFP poskytuje pomocné spracovanie médií pre aplikačnú vrstvu. Prostredníctvom MRFP je
+            možné
+            aby poskytovateľ poskytoval aj iné služby ako sú video-služby, konferencie, predplatné karty, menenie
+            vyzváňacích tónov ale aj rôzne rečové služby.
+          </p>
+        </div>
+        <h2 class="text-3xl text-center my-6"> Opis jednotlivých entít
+        </h2>
+        <div class="arch3 text-justify">
+          <p><b>CSCF</b> je jedným z najhlavnejších prvkov IMS platformy. Riadi všetku signalizáciu od koncového
+            užívateľa až po
+            služby a iné siete. Okrem funkcie spracovania a smerovania signalizačných správ zabezpečuje funkcie
+            autorizácie a autentifikácie. Môže spravovať pevné/fixné ale aj mobilné siete, ktoré obsahujú funkčné moduly
+            na správu signalizácie koncového užívateľa, prideľovanie aplikačných serverov, nadväzovanie spojení a správu
+            komunikácie s inými sieťami. CSCF je rozdelený do troch čiastkových funkcií, ktorými sú P-CSCF (Proxy-CSCF),
+            S-CSCF (Serving-CSCF) a I-CSCF (Interrogating-CSCF). Každá z týchto čiastkových funkcii ma svoj jedinečný
+            účel.
+          <p><br>
+        </div>
+        <div class="imsarch2">
+          <br>
+          <img class="mx-auto md:object-scale-down" src="assets/Images/Komuniikácia.png"
+            alt="Komunikácia medzi jednotlivými entitami a koncovým zariadením"><br>
+        </div>
+        <div class="arch4 text-justify">
+          <p><b>S-CSCF</b> je primárna funkcia zodpovedná za správne riadenie relácie a aj jej registráciu. Funguje ako
+            registrátor a umožňuje, aby informácie o sieťovom umiestnení vybavenia užívateľa boli dostupné v HSS. Robí
+            rozhodnutie o povolení alebo odmietnutí služby pre užívateľské zariadenia. Následne po povolení S-CSCF získa
+            profil predplatiteľa z HSS, vďaka čomu by zistila, na ktorý aplikačný server sa budú posielať požiadavky na
+            určité služby. Jeho úlohou je vykonať požiadavku na reláciu lokalizáciou cieľového koncového bodu a vedením
+            signalizácie k nemu.<br>
+            <b>P-SCSF</b> je prístupová funkcia pre zariadenie predplatiteľa., ktorá následne vyžaduje konkrétne služby
+            od siete
+            IMS. Úloha tejto čiastkovej funkcie je fungovať ako proxy server, ktorý prijíma prichádzajúce žiadosti a
+            preposiela ich entitám, ktoré majú ďalej slúžiť predplatiteľom. Prichádzajúce požiadavky môžu byť len dve.
+            Požiadavka na úvodnú registráciu alebo pre zrealizovanie multimediálnej relácie. Žiadosti, ktoré sú pozvánky
+            na spojenie s so zariadením predplatiteľa. Poskytuje kompresiu signalizácie SIP, aby sa minimalizovala
+            odozva
+            prenosu. Proxy-CSCF je schopný spravovať aj relácie tiesňového volania.<br>
+            <b>I-CSCF</b> je funkcia zodpovedná za ďalšie smerovanie správ do príslušného S-CSCF. Táto funkcia sa
+            využíva len v
+            konkrétnych scenároch, napríklad počas registrácie zariadenia daného užívateľa na priradenie alebo zistenie
+            S-CSCF, ktorá by mala byť použitá. I-CSCF má za úlohu presmerovať správy či požiadavky SIP aj z iných sietí.
+            Zároveň žiada HSS o adresu S-CSCF a priradí ju predplatiteľovi vykonávajúcemu registráciu SIP.<br>
+            <b>HSS</b> je hlavná predplatiteľská databáza používaná v rámci IMS, ktorá poskytuje podrobnosti o
+            predplatiteľoch
+            iným subjektom v sieti. Úlohou HSS je komunikovať so sieťou a poskytovať profil a autentifikačné údaje
+            predplatiteľa. Databáza uchováva informácie o predplatiteľoch, ktoré pomáhajú pri autorizácii, podrobnosti o
+            zariadeniach, ako aj informácie o polohe a službách používateľa. HSS prenáša tieto informácie do siete
+            pomocou
+            protokolu Diameter. Diameter je štandard sietí novej generácie používaný na výmenu informácii o
+            autentifikácií, autorizácií a účtovníctve. Ak sa v sieti nachádza viac HSS entít, je potrebná prítomnosť
+            jednotky SLF (Subscriber Location Function).<br>
+            <b>SLF</b> poskytuje informácie o HSS, ktorý pozná údaje o konkrétnom profile používateľa. Funkcia lokácie
+            predplatiteľa sa implementuje vždy pomocou databázy. V prípade, že sieť obsahuje viacero HSS, I-CSCF a
+            S-CSCF
+            budú následne komunikovať so SLF, ktorý nájde vhodný HSS na základe užívateľské profilu.<br>
+            <b>AS</b> komunikuje so S-CSCF pomocou SIP protokolu a vykonáva služby na základe predplatiteľského profilu.
+            V
+            závislosti na implementácii aplikačného servera dokáže hostiť jednu alebo viacero aplikácii v tom istom
+            čase.
+            Server spracováva a interpretuje správy SIP preposlané priamo zo S-CSCF alebo spracovane prostredníctvom
+            servera OSA (Open Service Access). Ďalším krokom aplikačného servera je previesť logiku služby koncového
+            užívateľa do sekvencii SIP správ, ktoré posiela zúčastneným stranám znovu cez S-CSCF. Vychádzajúc z IMS
+            architektúry je možné poskytovateľovi IMS služieb nasadiť viac aplikačných serverov pre jednu doménu. Rôzne
+            servery môžu byť nasadené pre rôzne typy aplikácii alebo pre rôzne skupiny predplatiteľov. S-CSCF rozhodne,
+            ci
+            predplatiteľ má prístup na daný aplikačný server prichádzajúcou požiadavkou SIP. Rozhodnutie vykonáva z
+            vyhodnotenia informácii o filtroch prijatých z HSS. AS pomocou filtrov určuje, ktorá z mnohých služieb
+            podporujúca serverom by mala reláciu spracovať. Počas filtrovania môže server komunikovať s HSS pomocou
+            Diameter protokolu, aby získal ďalšie informácie o predplatiteľovi z jeho osobného profilu.<br>
+            <b>SIP AS</b> je druh aplikačného servera, ktorý využíva signalizačne správy SIP na komunikáciu so S-CSCF.
+            SIP
+            aplikačný server posiela pozvánku (správa INVITE) a reaguje na odpovede SIP. V prípade služieb vyžadujúcich
+            interakciu s médiami, SIP AS sa dovoláva funkcie MRFC.<br>
+            <b>OSA AS</b> môže vykonávať úplne rovnaké funkcie ako SIP AS, ale nemá signalizačné schopnosti a nie je
+            priamo
+            zapojený do signalizačného toku SIP. Komunikuje s S-CSCF cez OSA SCS (OSA Service Capability Server). Z
+            pohľadu S-CSCF je správanie OSA SCS a SIP AS úplne rovnaké. SCS implementuje protokol Diameter, cez ktorý
+            dokáže čítať a aktualizovať dátové záznamy na základe požiadaviek OSA. SCS má prístup aj k údajom z HSS. OSA
+            AS implementuje hlavne služby, ktoré sú sprostredkované na platforme tretej strany.<br>
+            <b>MRF</b> spolupracuje s S-CSCF a AS. Je zodpovedný za vykonávanie rôznych úloh spracovania mediálnych
+            tokov
+            spojených s konkrétnymi službami. Úlohy, ktoré vykonáva sú koordinácia a distribúcia hlasovej alebo aj video
+            prevádzky, prehrávania oznámení účastníkovi a transkódovanie hlasových alebo obrazových tokov pre
+            jednoduchšie
+            vytváranie relácii. MRF sa skladá z dvoch komponentov. Prvý je MRFC a druhý MRFP.<br>
+            <b>MRFC</b> prijíma požiadavky SIP a spravuje mediálne zdroje prichádzajúce z AS a S-CSCF na kontrolu
+            MRFP.<br>
+            <b>MRFP</b> získava a spracováva mediálne toky v IMS. Poskytuje skutočné zdroje na spracovanie mediálneho
+            toku.<br>
+            <b>BGCF</b> volí bod a zabezpečí smerovanie, v ktorom dôjde k prerušeniu PSTN.<br>
+            <b>MGW</b> je riadený MGCF a realizuje spojenia medzi IP a CS (Circuit Switching) sieťami.<br>
+            <b>SGW</b> prepája viaceré siete obsiahnuté v konkrétnej IMS platforme a zároveň poskytuje premenu údajov na
+            nižšie
+            protokolové vrstvy.<br>
+        </div>
+      </div>
+    </section>
+    <section id="5" style="margin-top: 10px">
+      <div>
+        <div>
+          <h1 class="text-5xl text-center rounded-full py-3 px-6 my-8">
+            Podporované služby v IMS
+          </h1>
+        </div>
+        <div class="arch text-justify">
+          <p>Dostupnosť a rozsah multimediálnych služieb sa za posledné roky značne zvýšili. Najmä vznik mobilných
+            zariadení schopných podporovať video vo vysokej kvalite, interaktívne volania (najmä vďaka príchodu 5G
+            sietí),
+            prehrávanie zvuku a hry s vyššími nárokmi na hardvér stimuloval ďalší rast dodávania multimédií.
+            Poskytovateľ
+            telekomunikačných sietí sa pri poskytovaní svojich telekomunikačných služieb tradične spoliehal na niekoľko
+            sietí. Patria sem telefónne siete pre štandardné hlasové služby pevnej linky, mobilné siete pre celulárnu
+            komunikáciu a širokopásmové siete pre dátový prenos na spotrebiteľské a podnikové trhy. Inovácie v
+            digitálnych
+            multimédiách majú tradičný dopad na sieťové služby, ako napríklad hlas, tým, že sa z nich stávajú vylepšené
+            multimediálne aplikácie, ktoré už nevyžadujú zložité telefónne siete. Ďalším pokrokom vo videu sú
+            videokonferencie viacerých strán, do ďalších multimediálnych aplikácií. IMS podporuje nasadenie viacerých
+            služieb, ktoré môžu pracovať nezávisle na IP báze s určitou QoS. Najznámejšími sú okamžité správy (IM),
+            služba
+            prítomnosti, internetová televízia (IPTV), VoIP, konferencie a videokonferencie, služba Push-to-talk. </p>
+        </div>
+        <h2 class="text-3xl text-center my-6">Okamžité správy (IM)</h2>
+        <div class="arch1 text-justify">
+          <p>Jednou z hlavných charakteristík SIP je jeho schopnosť rýchlo a efektívne vytvárať relácie medzi skupinami
+            používateľov v reálnom čase. Posielanie správ založených na SIP je ekvivalentnou službou pre četovaciu
+            miestnosť (chat room) a okamžité správy, aké sa dnes nachádzajú na internete. Typické vlastnosti okamžitých
+            správ je okamžité doručenie správ príjemcovi. Častou vlastnosťou spojenou s IM je aj informovanosť o
+            aktivite užívateľov, čo predstavuje aj samostatná služba prítomnosti.
+            Četovacia miestnosť je virtuálne miesto, kde sa môže pripojiť viac osôb, sledovať, prispievať do
+            prebiehajúcej diskusie a kedykoľvek opustiť takéto virtuálne miesto. Četovacie miestnosti majú trvalejšiu
+            povahu v porovnaní s výmenami okamžitých správ a môžu ich vytvárať používatelia alebo poskytovatelia
+            služieb. Takéto virtuálne miestnosti je možné ďalej rozdeliť na súkromné a verejné. Používatelia, ktorí sa
+            zúčastňujú četovacej miestnosti, zvyčajne dostanú všetky správy, ktoré pošlú ostatní účastníci.
+            <br>
+        </div>
+        <h2 class="text-3xl text-center my-6">Služba prítomnosti</h2>
+        <div class="arch1 text-justify">
+          <p>Služba prítomnosti poskytuje informácie o aktuálnom stave všetkým užívateľom využívajúcich prezenčnú
+            službu. Jej princíp spočíva vo vytváraní dynamického profilu každému účastníkovi, ktorý obsahuje informácie
+            o dosiahnuteľnosti, dostupnosti, aktuálnej aktivite, typu zariadenia, polohe či o možnostiach komunikácie
+            účastníka. Služba je schopná v reálnom čase odovzdávať informácie rôznej veľkosti rôznemu počtu účastníkov
+            vďaka využitiu rozšírenia protokolu SIP na posielanie okamžitých správ a využitia informácie o prítomnosti.
+            Spojenie IM a protokolu prítomnosti založených na protokole SIP sa nazýva SIMPLE (Session Initiation
+            Protocol for Instant Messaging and Presence Leveraging Extensions). Služba prítomnosti môže byť pomerne
+            nenáročne realizovaná a využívaná v mnohých aplikáciách, v rozsiahlejších a komplikovanejších službách, v
+            moderných komunikačných softvéroch či technológiách.
+            Správy obsahujú zložku XML dokument so všetkými informáciami, ktoré správa prenáša. Jazyk XML je určený
+            predovšetkým na výmenu správ medzi aplikáciami a viacerými zariadeniami. XML dokument nemá preddefinované
+            názvy jednotlivých elementov a syntax je jednoduchšia ako syntax HTML (Hypertext Markup Language) pričom ide
+            o zovšeobecnenie tohto jazyka. XML poskytuje všeobecný rámec pre definovanie sekvencií štruktúrovaných
+            údajov.
+            V akejkoľvek komunikácií je prítomná <b>požiadavka</b> (request) a <b>odpoveď</b> (response). Požiadavka je
+            výzva na nadviazanie dialógu. Dialóg je virtuálne spojenie medzi dvomi koncovými bodmi. Spojenie pre
+            komunikáciu bude vytvorené, keď koncový bod pošle požiadavku cieľu, cieľ súhlasí s reláciou prostredníctvom
+            úspešnej odpovede (200 OK) a žiadateľ následne potvrdí reláciu. Žiadna požiadavka nie je kompletná bez
+            odpovedi. Služba prítomnosti pracuje so 4 druhmi správ.<br>
+            • <b>REGISTER</b>,<br>
+            • <b>PUBLISH</b>,<br>
+            • <b>SUBSRIBE</b>,<br>
+            • <b>NOTIFY</b>.<br>
+            <br>
+            <b>Správa REGISTER</b> je zvyčajne prvou správou poslanou zariadením po jeho zapnutí. Účelom správy REGISTER
+            je informovať sieť o polohe zariadenia – IP adresa. To preto, aby sieť vedela, ako má smerovať správy do
+            zariadenia, aby volajúci vedel nájsť predplatiteľa nech sa nachádza kdekoľvek. To je veľkou výhodou a
+            zároveň jedinečnou vlastnosťou IP sietí – mobilita. Pokiaľ užívateľ nie je registrovaný, PUA nastaví jeho
+            prítomnosť na „offline“, keď je registrovaný tak prítomnosť užívateľa je „online“.<br>
+            <b>Správa PUBLISH</b> je určená na zverejnenie stavu spojeného s entitou prítomnosti. PUBLISH posiela entita
+            prítomnosti v piatich možných scenároch na server prítomnosti. Akonáhle sa prítomnosť prihlási odošle
+            pub_login. To znamená, že účastník je zaregistrovaný a aktívny. Potom pub_refresh aktualizuje životnosť
+            predchádzajúceho stavu. Zisťuje, či predošlí stav je zároveň aj aktuálnym stavom. Pri úprave
+            predchádzajúceho stavu sa posiela PUBLISH ako pub_modify. Posiela sa ak pôvodný stav udalosti nadobúda iný
+            stav. Každý stav udalosti môže byť odstránený a to správou pub_remove. Pri odhlasovaní účastníka je poslaná
+            správa pub_logout.<br>
+            <b>Správa SUBSCRIBE</b> je posielaná medzi pozorovateľom a PUA. Umožňuje pozorovateľovi prihlásiť sa na
+            odber informácií o prítomnosti. Keď účastník začína odoberať informácie, posiela sa správa sub_initial. Pri
+            ukončení odoberania sub_terminal a pri obnovení odoberania informácií o entite prítomnosti sub_refresh.<br>
+            <b>Správa NOTIFY</b> sa posiela pozorovateľovi zo servera prítomnosti, ktorá informuje o stave entity
+            prítomnosti, u ktorej má pozorovateľ aktívny odber. Dôležitá je nadväznosť požiadaviek, kde jedna požiadavka
+            sub_refresh môže vyvolať množstvo NOTIFY správ. Dochádza k takzvanej reťazovej reakcii.<br>
+            Služba prítomnosti je často spájaná so službou okamžitých správ, pretože predplatiteľ často potrebuje iných
+            užívateľov aj rýchlo a jednoducho kontaktovať, a nie len poznať ich status prítomnosti. Spolu tvoria
+            komplexnú službu využívanú v mnohých platformách a firemných softvéroch. Samotnú informáciu o prítomnosti
+            vieme v mnohých systémoch s touto službou rozdeliť do dvoch skupín:<br>
+            • manuálne nastavená prítomnosť,<br>
+            • systémom určená prítomnosť. <br>
+            <b>Manuálne nastavená prítomnosť</b> je explicitne nastavená používateľom. Spravidla manuálne nastavená
+            prítomnosť má vyššiu prioritu ako systémom určená prítomnosť, a preto je systémom určená prítomnosť
+            potlačená manuálne nastavenou prítomnosťou. Manuálne nastaviteľnou prítomnosťou sú vo všeobecnosti:<br>
+            - „Do Not Disturb“ – čo reprezentuje status „Nevyrušovať“,<br>
+            - „Away“ – čo predstavuje stav „Neprítomný“,<br>
+            - „Available“ – čo indikuje stav „Prítomný“.<br>
+            Takúto manuálne nastaviteľnú prítomnosť môže mať každý používateľ nastavenú iba jednu. Manuálne nastavená
+            prítomnosť môže byť následne používateľom odstránená alebo nahradená iným manuálne nastaviteľným stavom.
+            Odstránená bude aj v prípade ak sa používateľ odhlási.<br>
+            <b>Systémom určená prítomnosť</b> je automaticky zverejňovaná zdrojom prítomnosti na základe určitej
+            interakcie medzi používateľom a systémom. V dnešnej dobe je bežné, pokiaľ na vašom zariadení prebieha hovor,
+            v aplikácií alebo priamo v službe prítomnosti sa váš status systémom zmení na: „Práve sa nachádza v hovore“.
+            V prípade, že sa napojíte na stretnutie tiež sa aktuálny status prítomnosti zmení na „Práve má stretnutie“.
+            Dôležité je len ako veľmi služba prítomnosti interaguje s ostatnými službami. Status prítomnosti sa
+            samozrejme automaticky systémom nastavuje hneď po prihlásení alebo po odhlásení užívateľa zo služby.
+            Výnimkou nie je ani systémom určená prítomnosť „Nevyrušovať“ pokiaľ je tak nastavené zariadenie užívateľa.
+            <br>
+            <br>
+        </div>
+        <h2 class="text-3xl text-center my-6">Internetová televízia (IPTV)</h2>
+        <div class="arch1 text-justify">
+          <p>IPTV je skratka pre IP televíziu a umožňuje užívateľom sledovať televízne programy cez internet namiesto
+            antén, satelitných antén alebo káblov z optických vlákien. Inými slovami, IPTV streamuje videoobsah priamo
+            cez internet. Aj keď sa doručovanie obsahu IPTV líši od poskytovania online video platforiem ako YouTube
+            alebo OTT služieb ako Netflix, poskytuje viacero z týchto vymožeností. Napríklad IPTV umožňuje používateľom
+            prístup k videu na požiadanie (VOD) podľa modelu založeného na predplatnom a sledovanie živého vysielania.
+            To dáva divákom slobodu prístupu k ich obľúbeným programom.<br>
+            <br>
+            Na rozdiel od tradičnej televízie, ktorá dokáže vysielať obsah iba v reálnom čase, IPTV má servery, na ktoré
+            ukladá obsah. To dáva používateľom možnosť prezerať ľubovoľné programy. Keď si používateľ vyberie reláciu,
+            ktorú by chcel sledovať, daný obsah sa prevedie do digitálneho formátu a prostredníctvom internetového
+            protokolu sa doručí v paketoch na jeho prehrávacie zariadenie. Prenesené súbory budú komprimované a
+            optimalizované na streamovanie skôr, ako sa dostanú ku koncovým používateľom.
+            <br>
+        </div>
+        <h2 class="text-3xl text-center my-6">Prenos hlasu cez IP (VoIP)</h2>
+        <div class="arch1 text-justify">
+          <p>Voice over Internet Protocol (VoIP), je technológia, ktorá umožňuje uskutočňovať hlasové hovory pomocou
+            širokopásmového internetového pripojenia namiesto bežnej telefónnej linky. Aj keď niektoré služby VoIP
+            fungujú iba počítači ako softvérom definovaný VoIP alebo na špeciálnom telefóne VoIP, iné služby vám
+            umožňujú používať tradičný telefón pripojený k adaptéru VoIP.<br>
+            <br>
+            Služby VoIP prevádzajú hlas na digitálny signál, ktorý je posielaný cez internet alebo IMS. Ak voláte na
+            bežné telefónne číslo, signál sa prevedie na bežný telefónny signál skôr, ako sa dostane do cieľa. VoIP
+            umožňuje užívateľovi volať priamo z počítača, špeciálneho telefónu VoIP alebo tradičného telefónu
+            pripojeného k špeciálnemu adaptéru.
+            <br>
+        </div>
+        <h2 class="text-3xl text-center my-6">Konferencie a videokonferencie</h2>
+        <div class="arch1 text-justify">
+          <p>Konferencia a videokonferencia je technológia, ktorá umožňuje používateľom na rôznych miestach organizovať
+            osobné stretnutia bez toho, aby sa museli spoločne presúvať na rovnaké miesto. Videokonferencia umožňuje
+            prenos zvuku a videa v rovnaký čas pre viacerých užívateľov. Táto technológia je obzvlášť vhodná pre
+            firemných používateľov v rôznych mestách alebo dokonca v rôznych krajinách, pretože šetrí čas, náklady a
+            problémy spojené s pracovnými cestami. Medzi videokonferencie patrí napríklad organizovanie bežných
+            stretnutí, firemné rokovania a pohovory s uchádzačmi o zamestnanie.
+            <br>
+        </div>
+        <h2 class="text-3xl text-center my-6">Push-to-talk (PTT)</h2>
+        <div class="arch1 text-justify">
+          <p>Služba push-to-talk (PTT) umožňuje používateľom zmeniť svoje zariadenia na kanály okamžitej komunikácie
+            podobné vysielačkám. Zariadenia so stiahnutým softvérom alebo s podporujúcou službou umožňujú tímom
+            komunikovať stlačením jediného tlačidla a hovorením do zariadenia. Ich správa sa okamžite prehrá na
+            zariadení iného užívateľa s ktorým komunikuje v reálnom čase. Nástroje PTT umožňujú užívateľom v rôznych
+            fyzických priestoroch komunikovať rýchlo a efektívne bez telefonovania alebo textových správ. PTT je
+            využívané na rôznych komunikačných platformách napríklad ako je platforma Discord, ktorá podporuje
+            automatické zachytávanie hlasu ale aj komunikáciu na kliknutie tlačidla.<br>
+        </div>
+        <h2 class="text-3xl text-center my-6">SMS a MMS</h2>
+        <div class="arch1 text-justify">
+          <p>Služba krátkych správ (SMS) sa používajú na odosielanie textových správ na mobilné telefóny. Aj keď sa SMS
+            najčastejšie používa na odosielanie textových správ medzi priateľmi alebo spolupracovníkmi, má aj niekoľko
+            ďalších využití. Napríklad predplatené služby SMS môžu prenášať počasie, správy, športové informácie alebo
+            informovanie o zostatku na bankovom účte do telefónov používateľov. V mnohých prípadoch vieme pomocou SMS
+            vykonať aj samotnú platbu.<br>
+            <br>
+            Služba multimediálnych správ (MMS) je služba mobilných telefónov, ktorá umožňuje používateľom navzájom si
+            posielať multimediálne správy. Patria sem obrázky, videá a zvukové súbory. MMS je rozšírenie pre SMS.
+            Rovnako ako textové správy, aj multimediálne správy sa najskôr prenášajú na centrálny server udržiavaný
+            poskytovateľom celulárnych služieb. Hneď ako správu prijme server, preposiela ich príjemcovi. Ak je telefón
+            príjemcu vypnutý, server správu podrží a odošle ju až keď bude telefón príjemcu k dispozícii.
+            <br>
+        </div>
+      </div>
+    </section>
+    <section id="6" style="margin-top: 10px">
+      <div>
+        <h1 class="text-5xl text-center rounded-full py-3 px-6 my-8">
+          Kontakt
+        </h1>
+      </div>
+    </section>
+    <app-contact-form id="contact-form"></app-contact-form>
+    <br>
+    <section id="6" style="margin-top: 10px">
+      <div>
+        <h1 class="text-5xl text-center rounded-full py-3 px-6 my-8">
+          Analýza služby prítomnosti
+        </h1>
+      </div>
+    </section>
+    <section>
+      <app-calculate-model id="calculate-model"></app-calculate-model>
+</section>
+    <hr class="border-b m-0" />
+    <div class="footer text-justify">
+      <p
+        class="footer-text-left">
+        <a href="https://www.facebook.com/martin.drienovsky.98" class="menu border-b-2 border-yellow-600 no-underline transition duration-500 ease-in-out hover:bg-yellow-600 transform hover:-translate-y-1 hover:scale-110">Martin Drienovský </a>
+      </p>
+      
+      <p class="datum">
+        Upravené: 20.02.2023
+      </p>
+
+      <div
+        class="footer-content-right">
+        <a href="https://www.stuba.sk/" class="menu border-b-2 border-yellow-600 no-underline transition duration-500 ease-in-out hover:bg-yellow-600 transform hover:-translate-y-1 hover:scale-110">Slovenská Technická Univerzita </a>
+      </div>
+    </div>
+  </div>
+</div>

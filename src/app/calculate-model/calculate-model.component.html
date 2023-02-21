@@ -1,0 +1,131 @@
+<div class="container">
+    <h2 class="text-center mb-5">
+        Analýza komunikácie služby prítomnosti spočíva z komplexných matematických výpočtov. Pre analýzu komunikáciu
+        vložte vstupné údaje.
+    </h2>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)">
+
+                <div class="form-group">
+                    <label for="dlzkaOdoberania">Dĺžka odoberania prítomnosti v hodinách:</label>
+                    <input OnlyNumber="true" type="number" class="form-control" aria-describedby="odoberania"
+                        placeholder="Napíšte počet hodín" formControlName="Odoberania" />
+                    <small id="odoberania" class="form-text text-muted ">Napíšte v hodinách ako dlho bude odoberanie
+                        prítomnosti trvať počas jedného dňa.</small>
+                </div>
+                <div class="form-group text-bold">
+                    <label for="Zmeny">Počet zmien stavu
+                        prítomnosti za jednu hodinu:</label>
+                    <input OnlyNumber="true" type="number" class="form-control" aria-describedby="zmeny"
+                        placeholder="Napíšte počet zmien stavu" formControlName="Zmeny" />
+                    <small id="zmeny" class="form-text text-muted ">Napíšte počet zmien stavu
+                        prítomnosti za jednu hodinu.</small>
+                </div>
+                <div class="form-group">
+                    <label for="Obnovenia">Počet obnovení odberu
+                        (sub_refresh) za hodinu:</label>
+                    <input OnlyNumber="true" type="number" class="form-control" aria-describedby="obnovenia"
+                        placeholder="Napíšte počet obnovení odberu" formControlName="obnovenia" />
+                    <small id="obnovenia" class="form-text text-muted ">Napíšte počet obnovení odberu,
+                        poslaní požiadaviek sub_refresh, za jednu hodinu.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="pocetOdoberania">Počet odoberaných
+                        entít prítomnosti na jedného pozorovateľa:</label>
+                    <input OnlyNumber="true" type="number" class="form-control" placeholder="Napíšte počet odoberaných entít"
+                        formControlName="pocetOdoberania" />
+                </div>
+
+                <div class="form-group">
+                    <label for="pozorovatelia">Celkový počet
+                        pozorovateľov:</label>
+                    <input OnlyNumber="true" type="number" class="form-control" placeholder="Napíšte počet pozorovateľov"
+                        formControlName="pozorovatelia" />
+                </div>
+            
+                <button type="submit" class="btn btn-primary margin-auto" [disabled]="!FormData.valid"
+                    data-target="#modal">
+                    Vypočítať
+                </button>
+            </form>
+            <div [hidden]="!submited">
+                <label>Počty a veľkosti počiatočných správ</label>
+                <h2 class="text-center mb-5">
+                    Celkový počet správ sub_initial {{p5}} <br>
+                    Celková veľkosť správ sub_initial {{p5a}} <br>
+                    Celkový počet odpovedí 200 (OK) na správu sub_initial {{p6}}<br>
+                    Celková veľkosť odpovedí 200 (OK) na správu sub_initial {{p6a}} <br>
+                    Celkový počet správ notify_sub {{p7}} <br>
+                    Celková veľkosť správ notify_sub {{p7a}}<br>
+                    Celkový počet odpovedí 200 (OK) na správu notify_sub {{p8}} <br>
+                    Celková veľkosť odpovedí 200 (OK) na správu notify_sub {{p8a}} <br> <br>
+                    Celkové množstvo prenesených správ {{p9}} <br>
+                    Celková veľkosť všetkých počiatočných správ {{p9a}} <br>
+                </h2>
+                <label>Počty a veľkosti správ v ustálenej prevádzke
+                </label>
+                <h2 class="text-center mb-5">
+                    Celkový počet správ notify_pub {{u7}} <br>
+                    Celková veľkosť správ notify_pub {{u7a}} <br>
+                    Celkový počet odpovedí 200 (OK) na správu notify_pub {{u8}} <br>
+                    Celková veľkosť odpovedí 200 (OK) na správu notify_pub {{u8a}} <br> <br>
+                    Celkový počet správ pri zmene stavu prítomnosti {{u9}} <br>
+                    Celková veľkosť správ pri zmene stavu prítomnosti {{u9a}} <br>
+                    Celkový počet správ sub_refresh {{u10}} <br>
+                    Celková veľkosť správ sub_refresh {{u10a}} <br>
+                    Celkový počet odpovedí 200 (OK) na správu sub_refresh {{u11}} <br>
+                    Celková veľkosť odpovedí 200 (OK) na správu sub_refresh {{u11a}} <br>
+                    Celkový počet správ notify_sub {{u12}} <br>
+                    Celková veľkosť správ notify_sub {{u12a}} <br>
+                    Celkový počet odpovedí 200 (OK) na správu notify_sub {{u13}} <br>
+                    Celková veľkosť odpovedí 200 (OK) na správu notify_sub {{u13a}} <br> <br>
+                    Celkový počet správ spojený s obnovovaním odberu prítomnosti {{u14}} <br>
+                    Celková veľkosť správ pri obnovovaní odberu prítomnosti {{u14a}} <br> <br>
+                    Celkové množstvo všetkých prenesených správ v ustálenej prevádzke {{u15}} <br>
+                    Celková veľkosť všetkých správ v ustálenej prevádzke {{u15a}} <br>
+                </h2>
+                <label>Počty a veľkosti záverečných správ</label>
+                <h2 class="text-center mb-5">
+                    {{p5a}}
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="mb-6">
+    <label for="odoberania" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Dĺžka odoberania
+        prítomnosti v hodinách denne:</label>
+    <input type="text" id="base-input"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+</div>
+
+<div class="mb-6">
+    <label for="zmeny" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Počet zmien stavu
+        prítomnosti za jednu hodinu:</label>
+    <input type="text" id="base-input"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+</div>
+
+<div class="mb-6">
+    <label for="obnovenia" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Počet obnovení odberu
+        (sub_refresh) za hodinu</label>
+    <input type="text" id="base-input"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+</div>
+
+<div class="mb-6">
+    <label for="odoberania" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Počet odoberaných
+        entít prítomnosti na jedného pozorovateľa:</label>
+    <input type="text" id="base-input"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+</div>
+
+<div class="mb-6">
+    <label for="pozorovatelia" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Celkový počet
+        pozorovateľov:</label>
+    <input type="text" id="base-input"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+</div> -->
