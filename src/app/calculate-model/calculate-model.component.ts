@@ -162,42 +162,42 @@ submited: boolean = false;
     this.v3 = 0 
     this.v3a = 0 
 
-    this.p5 = this.calculateP5(FormData.pozorovatelia, 4)
-    this.p5a = this.calculateP5A(FormData.pozorovatelia, 4, 450)
+    this.p5 = this.calculateP5(FormData.pozorovatelia, FormData.pocetOdoberania)
+    this.p5a = this.calculateP5A(FormData.pozorovatelia, FormData.pocetOdoberania, 450)
     this.cp5a = this.bytesToStringSize(this.p5a);
-    this.p6 = this.calculateP6(FormData.pozorovatelia, 4)
-    this.p6a = this.calculateP6A(FormData.pozorovatelia, 4, 370)
+    this.p6 = this.calculateP6(FormData.pozorovatelia, FormData.pocetOdoberania)
+    this.p6a = this.calculateP6A(FormData.pozorovatelia, FormData.pocetOdoberania, 370)
     this.cp6a = this.bytesToStringSize(this.p6a);
-    this.p7 = this.calculateP7(FormData.pozorovatelia, 4)
-    this.p7a = this.calculateP7A( 4, FormData.pozorovatelia, 500, 3000)
+    this.p7 = this.calculateP7(FormData.pozorovatelia, FormData.pocetOdoberania)
+    this.p7a = this.calculateP7A(FormData.pocetOdoberania, FormData.pozorovatelia, 500, 3000)
     this.cp7a = this.bytesToStringSize(this.p7a);
-    this.p8 = this.calculateP8(FormData.pozorovatelia, 4)
-    this.p8a = this.calculateP8A(FormData.pozorovatelia, 4, 370)
+    this.p8 = this.calculateP8(FormData.pozorovatelia, FormData.pocetOdoberania)
+    this.p8a = this.calculateP8A(FormData.pozorovatelia, FormData.pocetOdoberania, 370)
     this.cp8a = this.bytesToStringSize(this.p8a);
     this.p9 = this.calculateP9(this.p5, this.p6, this.p7, this.p8)
     this.p9a = this.calculateP9A(this.p5a, this.p6a, this.p7a, this.p8a)
     this.cp9a = this.bytesToStringSize(this.p9a);
 
-    this.u7 = this.calculateU7(FormData.pozorovatelia, 22, FormData.pocetOdoberania)
-    this.u7a = this.calculateU7A(FormData.pozorovatelia, FormData.pocetOdoberania, 500, 3000, 22)
+    this.u7 = this.calculateU7(FormData.pozorovatelia, FormData.Odoberania, FormData.Zmeny, FormData.pocetOdoberania)
+    this.u7a = this.calculateU7A(FormData.pozorovatelia, FormData.pocetOdoberania, 500, 3000, FormData.Odoberania, FormData.Zmeny)
     this.cu7a = this.bytesToStringSize(this.u7a);
-    this.u8 = this.calculateU8(FormData.pozorovatelia, 22, FormData.pocetOdoberania)
-    this.u8a = this.calculateU8A(FormData.pozorovatelia, 22, FormData.pocetOdoberania, 370)
+    this.u8 = this.calculateU8(FormData.pozorovatelia, FormData.Odoberania, FormData.Zmeny, FormData.pocetOdoberania)
+    this.u8a = this.calculateU8A(FormData.pozorovatelia, FormData.Odoberania, FormData.Zmeny, FormData.pocetOdoberania, 370)
     this.cu8a = this.bytesToStringSize(this.u8a);
     this.u9 = this.calculateU9(this.u7, this.u8)
     this.u9a = this.calculateU9A(this.u7a, this.u8a)
     this.cu9a = this.bytesToStringSize(this.u9a);
-    this.u10 = this.calculateU10(FormData.pozorovatelia, 28)
-    this.u10a = this.calculateU10A(FormData.pozorovatelia, 28, 450)
+    this.u10 = this.calculateU10(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, FormData.pocetOdoberania)
+    this.u10a = this.calculateU10A(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, FormData.pocetOdoberania, 450)
     this.cu10a = this.bytesToStringSize(this.u10a);
-    this.u11 = this.calculateU11(FormData.pozorovatelia, 28)
-    this.u11a = this.calculateU11A(FormData.pozorovatelia, 28, 370)
+    this.u11 = this.calculateU11(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, FormData.pocetOdoberania)
+    this.u11a = this.calculateU11A(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, FormData.pocetOdoberania, 370)
     this.cu11a = this.bytesToStringSize(this.u11a);
-    this.u12 = this.calculateU12(FormData.pozorovatelia, 28)
-    this.u12a = this.calculateU12A(FormData.pozorovatelia, 28, 500, 3000)
+    this.u12 = this.calculateU12(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, FormData.pocetOdoberania)
+    this.u12a = this.calculateU12A(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, FormData.pocetOdoberania, 500, 3000)
     this.cu12a = this.bytesToStringSize(this.u12a);
-    this.u13 = this.calculateU13(FormData.pozorovatelia, 28)
-    this.u13a = this.calculateU13A(FormData.pozorovatelia, 28, 370)
+    this.u13 = this.calculateU13(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, FormData.pocetOdoberania)
+    this.u13a = this.calculateU13A(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, FormData.pocetOdoberania, 370)
     this.cu13a = this.bytesToStringSize(this.u13a);
     this.u14 = this.calculateU14(this.u10, this.u11, this.u12, this.u13)
     this.u14a = this.calculateU14A(this.u10a, this.u11a, this.u12a, this.u13a)
@@ -206,17 +206,17 @@ submited: boolean = false;
     this.u15a = this.calculateU15A(this.u9a, this.u14a)
     this.cu15a = this.bytesToStringSize(this.u15a);
 
-    this.z5 = this.calculateP5(FormData.pozorovatelia, 4)
-    this.z5a = this.calculateP5A(FormData.pozorovatelia, 4, 450)
+    this.z5 = this.calculateP5(FormData.pozorovatelia, FormData.pocetOdoberania)
+    this.z5a = this.calculateP5A(FormData.pozorovatelia, FormData.pocetOdoberania, 450)
     this.cz5a = this.bytesToStringSize(this.z5a);
-    this.z6 = this.calculateP6(FormData.pozorovatelia, 4)
-    this.z6a = this.calculateP6A(FormData.pozorovatelia, 4, 370)
+    this.z6 = this.calculateP6(FormData.pozorovatelia, FormData.pocetOdoberania)
+    this.z6a = this.calculateP6A(FormData.pozorovatelia, FormData.pocetOdoberania, 370)
     this.cz6a = this.bytesToStringSize(this.z6a);
-    this.z7 = this.calculateP7(FormData.pozorovatelia, 4)
-    this.z7a = this.calculateP7A( 4, FormData.pozorovatelia, 500, 3000)
+    this.z7 = this.calculateP7(FormData.pozorovatelia, FormData.pocetOdoberania)
+    this.z7a = this.calculateP7A( FormData.pocetOdoberania, FormData.pozorovatelia, 500, 3000)
     this.cz7a = this.bytesToStringSize(this.z7a);
-    this.z8 = this.calculateP8(FormData.pozorovatelia, 4)
-    this.z8a = this.calculateP8A(FormData.pozorovatelia, 4, 370)
+    this.z8 = this.calculateP8(FormData.pozorovatelia, FormData.pocetOdoberania)
+    this.z8a = this.calculateP8A(FormData.pozorovatelia, FormData.pocetOdoberania, 370)
     this.cz8a = this.bytesToStringSize(this.z8a);
     this.z9 = this.calculateP9(this.z5, this.z6, this.z7, this.z8)
     this.z9a = this.calculateP9A(this.z5a, this.z6a, this.z7a, this.z8a)
@@ -264,17 +264,17 @@ submited: boolean = false;
     return number1 + number2 + number3 + number4
   }
 
-  calculateU7(number1: number, number2: number, number3: number) {
-    return number1 * number2 * number3
+  calculateU7(number1: number, number2: number, number3: number, number4: number) {
+    return (number1 * (number2 * number3 -2) * number4)
   }
-  calculateU7A(number1: number, number2: number, number3: number, number4: number, number5: number) {
-    return ((number1 * number2) * (number3 + number4) *number5)
+  calculateU7A(number1: number, number2: number, number3: number, number4: number, number5: number, number6: number) {
+    return ((number1 * number2) * (number3 + number4) * (number5 * number6 -2))
   }
-  calculateU8(number1: number, number2: number, number3: number) {
-    return number1 * number2 * number3
+  calculateU8(number1: number, number2: number, number3: number, number4: number) {
+    return number1 * (number2 * number3 -2) * number4
   }
-  calculateU8A(number1: number, number2: number, number3: number, number4: number) {
-    return number1 * number2 * number3 * number4
+  calculateU8A(number1: number, number2: number, number3: number, number4: number, number5: number) {
+    return number1 * (number2 * number3 -2) * number4 * number5
   }
   calculateU9(number1: number, number2: number) {
     return number1 + number2 
@@ -282,29 +282,29 @@ submited: boolean = false;
   calculateU9A(number1: number, number2: number) {
     return number1 + number2 
   }
-  calculateU10(number1: number, number2: number) {
-    return number1 * number2 
+  calculateU10(number1: number, number2: number, number3: number, number4: number) {
+    return (((number2/number3)-1) * number4) * number1
   }
-  calculateU10A(number1: number, number2: number, number3: number) {
-    return number1 * number2 * number3
+  calculateU10A(number1: number, number2: number, number3: number, number4: number, number5: number) {
+    return number1 * (((number2/number3)-1) * number4) * number5
   }
-  calculateU11(number1: number, number2: number) {
-    return number1 * number2 
+  calculateU11(number1: number, number2: number, number3: number, number4: number) {
+    return number1 * (((number2/number3)-1) * number4)
   }
-  calculateU11A(number1: number, number2: number, number3: number) {
-    return number1 * number2 * number3
+  calculateU11A(number1: number, number2: number, number3: number, number4: number, number5: number) {
+    return number1 * (((number2/number3)-1) * number4) * number5
   }
-  calculateU12(number1: number, number2: number) {
-    return number1 * number2 
+  calculateU12(number1: number, number2: number, number3: number, number4: number) {
+    return number1 * (((number2/number3)-1) * number4) 
   }
-  calculateU12A(number1: number, number2: number, number3: number, number4: number) {
-    return (number1 * number2 * (number3 + number4))
+  calculateU12A(number1: number, number2: number, number3: number, number4: number, number5: number, number6: number) {
+    return (number1 * (((number2/number3)-1) * number4) * (number5 + number6))
   }
-  calculateU13(number1: number, number2: number) {
-    return number1 * number2 
+  calculateU13(number1: number, number2: number, number3: number, number4: number) {
+    return number1 * (((number2/number3)-1) * number4)
   }
-  calculateU13A(number1: number, number2: number, number3: number) {
-    return number1 * number2 * number3
+  calculateU13A(number1: number, number2: number, number3: number, number4: number, number5: number) {
+    return number1 * (((number2/number3)-1) * number4) * number5
   }
   calculateU14(number1: number, number2: number, number3: number, number4: number) {
     return number1 + number2 + number3 + number4
