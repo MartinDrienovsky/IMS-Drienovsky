@@ -26,7 +26,8 @@ export class CalculateModelComponent implements OnInit {
     private httpClient: HttpClient,
     public dialog: MatDialog
   ) {}
-
+// Non optimized
+// p- pociatocne, a - velkost, c - converted na spravne jednotky, u - ustalene, z - zaverecne, v - vysledne
 p5: number = 0;
 p5a: number = 0;
 cp5a: string
@@ -97,6 +98,79 @@ v3: number = 0;
 v3a: number = 0;
 cv3a: string
 
+// Dialog optimized
+// d - optimalizacia dialog
+
+dp5: number = 0;
+dp5a: number = 0;
+dcp5a: string
+dp6: number = 0;
+dp6a: number = 0;
+dcp6a: string
+dp7: number = 0;
+dp7a: number = 0;
+dcp7a: string
+dp8: number = 0;
+dp8a: number = 0;
+dcp8a: string
+dp9: number = 0;
+dp9a: number = 0;
+dcp9a: string
+
+du7: number = 0;
+du7a: number = 0;
+dcu7a: string
+du8: number = 0;
+du8a: number = 0;
+dcu8a: string
+du9: number = 0;
+du9a: number = 0;
+dcu9a: string
+du10: number = 0;
+du10a: number = 0;
+dcu10a: string
+du11: number = 0;
+du11a: number = 0;
+dcu11a: string
+du12: number = 0;
+du12a: number = 0;
+dcu12a: string
+du13: number = 0;
+du13a: number = 0;
+dcu13a: string
+du14: number = 0;
+du14a: number = 0;
+dcu14a: string
+du15: number = 0;
+du15a: number = 0;
+dcu15a: string
+
+dz5: number = 0;
+dz5a: number = 0;
+dcz5a: string
+dz6: number = 0;
+dz6a: number = 0;
+dcz6a: string
+dz7: number = 0;
+dz7a: number = 0;
+dcz7a: string
+dz8: number = 0;
+dz8a: number = 0;
+dcz8a: string
+dz9: number = 0;
+dz9a: number = 0;
+dcz9a: string
+
+dv1: number = 0;
+dv1a: number = 0;
+dcv1a: string
+dv2: number = 0;
+dv2a: number = 0;
+dcv2a: string
+dv3: number = 0;
+dv3a: number = 0;
+dcv3a: string
+
 submited: boolean = false;
 
   ngOnInit(): void {
@@ -112,8 +186,10 @@ submited: boolean = false;
   
   onSubmit(FormData) {
     console.log(FormData);
-  
+
     this.submited = true
+
+    // Non Optimized
     this.p5 = 0
     this.p5a = 0 
     this.p6 = 0 
@@ -162,6 +238,57 @@ submited: boolean = false;
     this.v3 = 0 
     this.v3a = 0 
 
+    // Dialog optimized
+    this.dp5 = 0
+    this.dp5a = 0 
+    this.dp6 = 0 
+    this.dp6a = 0 
+    this.dp7 = 0 
+    this.dp7a = 0 
+    this.dp8 = 0
+    this.dp8a = 0 
+    this.dp9 = 0
+    this.dp9a = 0
+
+    this.du7 = 0 
+    this.du7a = 0 
+    this.du8 = 0
+    this.du8a = 0 
+    this.du9 = 0
+    this.du9a = 0
+    this.du10 = 0
+    this.du10a = 0
+    this.du11 = 0
+    this.du11a = 0 
+    this.du12 = 0
+    this.du12a = 0
+    this.du13 = 0
+    this.du13a = 0
+    this.du14 = 0
+    this.du14a = 0
+    this.du15 = 0
+    this.du15a = 0
+
+    this.dz5 = 0
+    this.dz5a = 0 
+    this.dz6 = 0 
+    this.dz6a = 0 
+    this.dz7 = 0 
+    this.dz7a = 0 
+    this.dz8 = 0
+    this.dz8a = 0 
+    this.dz9 = 0
+    this.dz9a = 0
+
+    this.dv1 = 0
+    this.dv1a = 0 
+    this.dv2 = 0 
+    this.dv2a = 0 
+    this.dv3 = 0 
+    this.dv3a = 0
+
+    
+    // Non optimized
     this.p5 = this.calculateP5(FormData.pozorovatelia, FormData.pocetOdoberania)
     this.p5a = this.calculateP5A(FormData.pozorovatelia, FormData.pocetOdoberania, 450)
     this.cp5a = this.bytesToStringSize(this.p5a);
@@ -231,8 +358,80 @@ submited: boolean = false;
     this.v3 = this.calculateV3(this.v1, FormData.pozorovatelia)
     this.v3a = this.calculateV3A(this.v1a, FormData.pozorovatelia)
     this.cv3a = this.bytesToStringSize(this.v3a);
-  }
 
+    // Dialog optimized
+    this.dp5 = this.calculateDP5(FormData.pozorovatelia, 1)
+    this.dp5a = this.calculateDP5A(FormData.pozorovatelia, 1, 450)
+    this.dcp5a = this.bytesToStringSize(this.dp5a);
+    this.dp6 = this.calculateDP6(FormData.pozorovatelia, 1)
+    this.dp6a = this.calculateDP6A(FormData.pozorovatelia, 1, 370)
+    this.dcp6a = this.bytesToStringSize(this.dp6a);
+    this.dp7 = this.calculateDP7(FormData.pozorovatelia, 1)
+    this.dp7a = this.calculateDP7A(1, FormData.pozorovatelia, 500, 3000, FormData.pocetOdoberania)
+    this.dcp7a = this.bytesToStringSize(this.dp7a);
+    this.dp8 = this.calculateDP8(FormData.pozorovatelia, 1)
+    this.dp8a = this.calculateDP8A(FormData.pozorovatelia, 1, 370)
+    this.dcp8a = this.bytesToStringSize(this.dp8a);
+    this.dp9 = this.calculateDP9(this.dp5, this.dp6, this.dp7, this.dp8)
+    this.dp9a = this.calculateDP9A(this.dp5a, this.dp6a, this.dp7a, this.dp8a)
+    this.dcp9a = this.bytesToStringSize(this.dp9a);
+
+    this.du7 = this.calculateDU7(FormData.pozorovatelia, FormData.Odoberania, FormData.Zmeny, FormData.pocetOdoberania)
+    this.du7a = this.calculateDU7A(FormData.pozorovatelia, FormData.pocetOdoberania, 500, 3000, FormData.Odoberania, FormData.Zmeny)
+    this.dcu7a = this.bytesToStringSize(this.du7a);
+    this.du8 = this.calculateDU8(FormData.pozorovatelia, FormData.Odoberania, FormData.Zmeny, FormData.pocetOdoberania)
+    this.du8a = this.calculateDU8A(FormData.pozorovatelia, FormData.Odoberania, FormData.Zmeny, FormData.pocetOdoberania, 370)
+    this.dcu8a = this.bytesToStringSize(this.du8a);
+    this.du9 = this.calculateDU9(this.du7, this.du8)
+    this.du9a = this.calculateDU9A(this.du7a, this.du8a)
+    this.dcu9a = this.bytesToStringSize(this.du9a);
+    this.du10 = this.calculateDU10(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, 1)
+    this.du10a = this.calculateDU10A(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, 1, 450)
+    this.dcu10a = this.bytesToStringSize(this.du10a);
+    this.du11 = this.calculateDU11(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, 1)
+    this.du11a = this.calculateDU11A(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, 1, 370)
+    this.dcu11a = this.bytesToStringSize(this.du11a);
+    this.du12 = this.calculateDU12(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, 1)
+    this.du12a = this.calculateDU12A(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, FormData.pocetOdoberania, 500, 3000)
+    this.dcu12a = this.bytesToStringSize(this.du12a);
+    this.du13 = this.calculateDU13(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, 1)
+    this.du13a = this.calculateDU13A(FormData.pozorovatelia, FormData.Odoberania, FormData.obnovenia, FormData.pocetOdoberania, 370)
+    this.dcu13a = this.bytesToStringSize(this.du13a);
+    this.du14 = this.calculateDU14(this.du10, this.du11, this.du12, this.du13)
+    this.du14a = this.calculateDU14A(this.du10a, this.du11a, this.du12a, this.du13a)
+    this.dcu14a = this.bytesToStringSize(this.du14a);
+    this.du15 = this.calculateDU15(this.du9, this.du14)
+    this.du15a = this.calculateDU15A(this.du9a, this.du14a)
+    this.dcu15a = this.bytesToStringSize(this.du15a);
+
+    this.dz5 = this.calculateDP5(FormData.pozorovatelia, 1)
+    this.dz5a = this.calculateDP5A(FormData.pozorovatelia, 1, 450)
+    this.dcz5a = this.bytesToStringSize(this.dz5a);
+    this.dz6 = this.calculateDP6(FormData.pozorovatelia, 1)
+    this.dz6a = this.calculateDP6A(FormData.pozorovatelia, 1, 370)
+    this.dcz6a = this.bytesToStringSize(this.dz6a);
+    this.dz7 = this.calculateDP7(FormData.pozorovatelia, 1)
+    this.dz7a = this.calculateDP7A(1, FormData.pozorovatelia, 500, 3000, FormData.pocetOdoberania)
+    this.dcz7a = this.bytesToStringSize(this.dz7a);
+    this.dz8 = this.calculateDP8(FormData.pozorovatelia, 1)
+    this.dz8a = this.calculateDP8A(FormData.pozorovatelia, 1, 370)
+    this.dcz8a = this.bytesToStringSize(this.dz8a);
+    this.dz9 = this.calculateDP9(this.dz5, this.dz6, this.dz7, this.dz8)
+    this.dz9a = this.calculateDP9A(this.dz5a, this.dz6a, this.dz7a, this.dz8a)
+    this.dcz9a = this.bytesToStringSize(this.dz9a);
+
+    this.dv1 = this.calculateDV1(this.dp9, this.du15, this.dz9)
+    this.dv1a = this.calculateDV1A(this.dp9a, this.du15a, this.dz9a)
+    this.dcv1a = this.bytesToStringSize(this.dv1a);
+    this.dv2 = this.calculateDV2(this.dv1, 60, 60, FormData.Odoberania)
+    this.dv2a = this.calculateDV2A(this.dv1a, 60, 60, FormData.Odoberania)
+    this.dcv2a = this.bytesToStringSize(this.dv2a);
+    this.dv3 = this.calculateDV3(this.dv1, FormData.pozorovatelia)
+    this.dv3a = this.calculateDV3A(this.dv1a, FormData.pozorovatelia)
+    this.dcv3a = this.bytesToStringSize(this.dv3a);
+
+  }
+//Non optimized
   calculateP5(number1: number, number2: number) {
       return number1 * number2
   }
@@ -335,6 +534,112 @@ submited: boolean = false;
     return (number1 / number2 )
   }
   calculateV3A(number1: number, number2: number) {
+    return (number1 / number2)
+  }
+
+  // Dialog optimized
+  calculateDP5(number1: number, number2: number) {
+    return number1 * number2
+  }
+  calculateDP5A(number1: number, number2: number, number3: number) {
+    return number1 * number2 * number3
+  }
+  calculateDP6(number1: number, number2: number) {
+    return number1 * number2 
+  }
+  calculateDP6A(number1: number, number2: number, number3: number) {
+    return number1 * number2 * number3
+  }
+  calculateDP7(number1: number, number2: number) {
+    return number1 * number2 
+  }
+  calculateDP7A(number1: number, number2: number, number3: number, number4: number, number5: number) {
+    return ((number1 * number2 * (number3 + 144 + 144))+(number1 * number2 * number5 * (number4 + 160 + 144)))
+  }
+  calculateDP8(number1: number, number2: number) {
+    return number1 * number2 
+  }
+  calculateDP8A(number1: number, number2: number, number3: number) {
+    return number1 * number2 * number3
+  }
+  calculateDP9(number1: number, number2: number, number3: number, number4: number) {
+    return number1 + number2 + number3 + number4
+  }
+  calculateDP9A(number1: number, number2: number, number3: number, number4: number) {
+    return number1 + number2 + number3 + number4
+  }
+
+  calculateDU7(number1: number, number2: number, number3: number, number4: number) {
+    return (number1 * (number2 * number3 -2) * number4)
+  }
+  calculateDU7A(number1: number, number2: number, number3: number, number4: number, number5: number, number6: number) {
+    return ((number1 * number2) * ((number3 + number4 + 144 + 144 + 160 + 144) * (number5 * number6 -2)))
+  }
+  calculateDU8(number1: number, number2: number, number3: number, number4: number) {
+    return number1 * (number2 * number3 -2) * number4
+  }
+  calculateDU8A(number1: number, number2: number, number3: number, number4: number, number5: number) {
+    return (number1 * number4) * (number2 * number3 -2) * number5
+  }
+  calculateDU9(number1: number, number2: number) {
+    return number1 + number2 
+  }
+  calculateDU9A(number1: number, number2: number) {
+    return number1 + number2 
+  }
+  calculateDU10(number1: number, number2: number, number3: number, number4: number) {
+    return (((number2/number3)-1) * number4) * number1
+  }
+  calculateDU10A(number1: number, number2: number, number3: number, number4: number, number5: number) {
+    return number1 * (((number2/number3)-1) * number4) * number5
+  }
+  calculateDU11(number1: number, number2: number, number3: number, number4: number) {
+    return number1 * (((number2/number3)-1) * number4)
+  }
+  calculateDU11A(number1: number, number2: number, number3: number, number4: number, number5: number) {
+    return number1 * (((number2/number3)-1) * number4) * number5
+  }
+  calculateDU12(number1: number, number2: number, number3: number, number4: number) {
+    return number1 * (((number2/number3)-1) * number4) 
+  }
+  calculateDU12A(number1: number, number2: number, number3: number, number4: number, number5: number, number6: number) {
+    return (number1 * ((((number2/number3)-1)) * ((number5 + 144 + 144) + (number4 * (number6 + 160 + 144)))))
+  }
+  calculateDU13(number1: number, number2: number, number3: number, number4: number) {
+    return number1 * (((number2/number3)-1) * number4)
+  }
+  calculateDU13A(number1: number, number2: number, number3: number, number4: number, number5: number) {
+    return number1 * (((number2/number3)-1) * number4) * number5
+  }
+  calculateDU14(number1: number, number2: number, number3: number, number4: number) {
+    return number1 + number2 + number3 + number4
+  }
+  calculateDU14A(number1: number, number2: number, number3: number, number4: number) {
+    return number1 + number2 + number3 + number4
+  }
+  calculateDU15(number1: number, number2: number) {
+    return number1 + number2 
+  }
+  calculateDU15A(number1: number, number2: number) {
+    return number1 + number2 
+  }
+
+  calculateDV1(number1: number, number2: number, number3: number) {
+    return number1 + number2 + number3
+  }
+  calculateDV1A(number1: number, number2: number, number3: number) {
+    return number1 + number2 + number3
+  }
+  calculateDV2(number1: number, number2: number, number3: number, number4: number) {
+    return Math.floor(number1 / (number2 * number3 * number4))
+  }
+  calculateDV2A(number1: number, number2: number, number3: number, number4: number) {
+    return (number1 / (number2 * number3 * number4))
+  }
+  calculateDV3(number1: number, number2: number) {
+    return (number1 / number2 )
+  }
+  calculateDV3A(number1: number, number2: number) {
     return (number1 / number2)
   }
 
