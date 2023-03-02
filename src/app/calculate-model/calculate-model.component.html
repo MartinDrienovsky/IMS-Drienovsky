@@ -51,6 +51,7 @@
                 </button>
             </form>
             <div [hidden]="!submited">
+                <h1> Neoptimalizovaná služba </h1>
                 <label>Počty a veľkosti počiatočných správ</label>
                 <h2 class="text-center mb-5">
                     Celkový počet správ sub_initial {{p5}} <br>
@@ -107,6 +108,65 @@
                     Celková veľkosť všetkých správ za sekundu  {{cv2a}} <br>
                     Celkové množstvo prenesených správ jedným užívateľom {{v3}} <br>
                     Celková veľkosť všetkých správ na užívateľa {{cv3a}} <br>
+                    
+                </h2>
+                <h1> Optimalizácia služby DIALOG (využitie RLS) </h1>
+                <label>Počty a veľkosti počiatočných správ</label>
+                <h2 class="text-center mb-5">
+                    Celkový počet správ sub_initial {{dp5}} <br>
+                    Celková veľkosť správ sub_initial {{dcp5a}} <br>
+                    Celkový počet odpovedí 200 (OK) na správu sub_initial {{dp6}}<br>
+                    Celková veľkosť odpovedí 200 (OK) na správu sub_initial {{dcp6a}} <br>
+                    Celkový počet správ notify_sub {{dp7}} <br>
+                    Celková veľkosť správ notify_sub {{dcp7a}}<br>
+                    Celkový počet odpovedí 200 (OK) na správu notify_sub {{dp8}} <br>
+                    Celková veľkosť odpovedí 200 (OK) na správu notify_sub {{dcp8a}} <br> <br>
+                    Celkové množstvo prenesených správ {{dp9}} <br>
+                    Celková veľkosť všetkých počiatočných správ {{dcp9a}} <br>
+                </h2>
+                <label>Počty a veľkosti správ v ustálenej prevádzke
+                </label>
+                <h2 class="text-center mb-5">
+                    Celkový počet správ notify_pub {{du7}} <br>
+                    Celková veľkosť správ notify_pub {{dcu7a}} <br>
+                    Celkový počet odpovedí 200 (OK) na správu notify_pub {{du8}} <br>
+                    Celková veľkosť odpovedí 200 (OK) na správu notify_pub {{dcu8a}} <br> <br>
+                    Celkový počet správ pri zmene stavu prítomnosti {{du9}} <br>
+                    Celková veľkosť správ pri zmene stavu prítomnosti {{dcu9a}} <br>
+                    Celkový počet správ sub_refresh {{du10}} <br>
+                    Celková veľkosť správ sub_refresh {{dcu10a}} <br>
+                    Celkový počet odpovedí 200 (OK) na správu sub_refresh {{du11}} <br>
+                    Celková veľkosť odpovedí 200 (OK) na správu sub_refresh {{dcu11a}} <br>
+                    Celkový počet správ notify_sub {{du12}} <br>
+                    Celková veľkosť správ notify_sub {{dcu12a}} <br>
+                    Celkový počet odpovedí 200 (OK) na správu notify_sub {{du13}} <br>
+                    Celková veľkosť odpovedí 200 (OK) na správu notify_sub {{dcu13a}} <br> <br>
+                    Celkový počet správ spojený s obnovovaním odberu prítomnosti {{du14}} <br>
+                    Celková veľkosť správ pri obnovovaní odberu prítomnosti {{dcu14a}} <br> <br>
+                    Celkové množstvo všetkých prenesených správ v ustálenej prevádzke {{du15}} <br>
+                    Celková veľkosť všetkých správ v ustálenej prevádzke {{dcu15a}} <br>
+                </h2>
+                <label>Počty a veľkosti záverečných správ</label>
+                <h2 class="text-center mb-5">
+                    Celkový počet správ sub_terminal {{dz5}} <br>
+                    Celková veľkosť správ sub_terminal {{dcz5a}} <br>
+                    Celkový počet odpovedí 200 (OK) na správu sub_terminal {{dz6}} <br>
+                    Celková veľkosť odpovedí 200 (OK) na správu sub_terminal {{dcz6a}} <br>
+                    Celkový počet správ notify_sub {{dz7}} <br>
+                    Celková veľkosť správ notify_sub {{dcz7a}} <br>
+                    Celkový počet odpovedí 200 (OK) na správu notify_sub {{dz8}} <br>
+                    Celková veľkosť odpovedí 200 (OK) na správu notify_sub {{dcz8a}} <br> <br>
+                    Celkové množstvo prenesených správ {{dz9}} <br>
+                    Celková veľkosť všetkých záverečných správ {{dcz9a}} <br>
+                </h2>
+                <label>Počty a veľkosti všetkých prenesených správ</label>
+                <h2 class="text-center mb-5">
+                    Celkový počet prenesených správ {{dv1}} <br>
+                    Celková veľkosť všetkých správ {{dcv1a}} <br>
+                    Celkový počet prenesených správ za jednu sekundu {{dv2}} <br>
+                    Celková veľkosť všetkých správ za sekundu  {{dcv2a}} <br>
+                    Celkové množstvo prenesených správ jedným užívateľom {{dv3}} <br>
+                    Celková veľkosť všetkých správ na užívateľa {{dcv3a}} <br>
                     
                 </h2>
             </div>
