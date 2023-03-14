@@ -5,3 +5,19 @@ button { /* CSS reference for button component in contact.form.component.html */
   label { /* CSS reference for all headers used in home.component.html */
     font-weight: 700;
     }
+
+/*table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 200%;
+}*/
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

@@ -43,6 +43,8 @@ export class HeaderComponent {
       this.activeSiteSection = 5;
     } else if (event.url.indexOf('#6') !== -1) {
       this.activeSiteSection = 6;
+    } else if (event.url.indexOf('#7') !== -1) {
+      this.activeSiteSection = 7  ;
     } else {
       this.activeSiteSection = 1;
     }

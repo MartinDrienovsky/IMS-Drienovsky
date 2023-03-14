@@ -10,20 +10,20 @@
                 <div class="form-group">
                     <label for="dlzkaOdoberania">Dĺžka odoberania prítomnosti v hodinách:</label>
                     <input OnlyNumber="true" type="number" class="form-control" aria-describedby="odoberania"
-                        placeholder="Napíšte počet hodín" formControlName="Odoberania" />
+                        placeholder="Napíšte počet hodín" formControlName="odoberania" />
                     <small id="odoberania" class="form-text text-muted ">Napíšte v hodinách ako dlho bude odoberanie
                         prítomnosti trvať počas jedného dňa.</small>
                 </div>
                 <div class="form-group text-bold">
-                    <label for="Zmeny">Počet zmien stavu
+                    <label for="zmeny">Počet zmien stavu
                         prítomnosti za jednu hodinu:</label>
                     <input OnlyNumber="true" type="number" class="form-control" aria-describedby="zmeny"
-                        placeholder="Napíšte počet zmien stavu" formControlName="Zmeny" />
+                        placeholder="Napíšte počet zmien stavu" formControlName="zmeny" />
                     <small id="zmeny" class="form-text text-muted ">Napíšte počet zmien stavu
                         prítomnosti za jednu hodinu.</small>
                 </div>
                 <div class="form-group">
-                    <label for="Obnovenia">Počet obnovení odberu
+                    <label for="obnovenia">Počet obnovení odberu
                         (sub_refresh) za hodinu:</label>
                     <input OnlyNumber="true" type="number" class="form-control" aria-describedby="obnovenia"
                         placeholder="Napíšte počet obnovení odberu" formControlName="obnovenia" />
@@ -51,124 +51,459 @@
                 </button>
             </form>
             <div [hidden]="!submited">
-                <h1> Neoptimalizovaná služba </h1>
+                <h1 class="text-3xl text-center rounded-full py-3 px-6 my-8"> Neoptimalizovaná služba </h1>
                 <label>Počty a veľkosti počiatočných správ</label>
+                <table>
                 <h2 class="text-center mb-5">
-                    Celkový počet správ sub_initial {{p5}} <br>
-                    Celková veľkosť správ sub_initial {{cp5a}} <br>
-                    Celkový počet odpovedí 200 (OK) na správu sub_initial {{p6}}<br>
-                    Celková veľkosť odpovedí 200 (OK) na správu sub_initial {{cp6a}} <br>
-                    Celkový počet správ notify_sub {{p7}} <br>
-                    Celková veľkosť správ notify_sub {{cp7a}}<br>
-                    Celkový počet odpovedí 200 (OK) na správu notify_sub {{p8}} <br>
-                    Celková veľkosť odpovedí 200 (OK) na správu notify_sub {{cp8a}} <br> <br>
-                    Celkové množstvo prenesených správ {{p9}} <br>
-                    Celková veľkosť všetkých počiatočných správ {{cp9a}} <br>
+                    <tr>
+                        <th>Správa</th>
+                        <th>Hodnota</th>
+                      </tr>
+                    <tr><td>Celkový počet správ sub_initial</td> <td>{{p5}}</td></tr>
+                    <tr><td>Celková veľkosť správ sub_initial</td> <td>{{cp5a}} </td></tr>
+                    <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_initial </td> <td>{{p6}} </td></tr>
+                    <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_initial </td> <td>{{cp6a}} </td> </tr>
+                    <tr><td>Celkový počet správ notify_sub</td> <td> {{p7}} </td></tr>
+                    <tr><td>Celková veľkosť správ notify_sub </td> <td>{{cp7a}} </td></tr>
+                    <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub </td> <td>{{p8}} </td></tr>
+                    <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub </td> <td>{{cp8a}} </td></tr>
+                    <tr><td>Celkové množstvo prenesených správ </td> <td>{{p9}} </td></tr>
+                    <tr><td>Celková veľkosť všetkých počiatočných správ </td> <td>{{cp9a}} </td></tr>
                 </h2>
+                </table>
                 <label>Počty a veľkosti správ v ustálenej prevádzke
                 </label>
+                <table>
                 <h2 class="text-center mb-5">
-                    Celkový počet správ notify_pub {{u7}} <br>
-                    Celková veľkosť správ notify_pub {{cu7a}} <br>
-                    Celkový počet odpovedí 200 (OK) na správu notify_pub {{u8}} <br>
-                    Celková veľkosť odpovedí 200 (OK) na správu notify_pub {{cu8a}} <br> <br>
-                    Celkový počet správ pri zmene stavu prítomnosti {{u9}} <br>
-                    Celková veľkosť správ pri zmene stavu prítomnosti {{cu9a}} <br>
-                    Celkový počet správ sub_refresh {{u10}} <br>
-                    Celková veľkosť správ sub_refresh {{cu10a}} <br>
-                    Celkový počet odpovedí 200 (OK) na správu sub_refresh {{u11}} <br>
-                    Celková veľkosť odpovedí 200 (OK) na správu sub_refresh {{cu11a}} <br>
-                    Celkový počet správ notify_sub {{u12}} <br>
-                    Celková veľkosť správ notify_sub {{cu12a}} <br>
-                    Celkový počet odpovedí 200 (OK) na správu notify_sub {{u13}} <br>
-                    Celková veľkosť odpovedí 200 (OK) na správu notify_sub {{cu13a}} <br> <br>
-                    Celkový počet správ spojený s obnovovaním odberu prítomnosti {{u14}} <br>
-                    Celková veľkosť správ pri obnovovaní odberu prítomnosti {{cu14a}} <br> <br>
-                    Celkové množstvo všetkých prenesených správ v ustálenej prevádzke {{u15}} <br>
-                    Celková veľkosť všetkých správ v ustálenej prevádzke {{cu15a}} <br>
+                    <tr>
+                        <th>Správa</th>
+                        <th>Hodnota</th>
+                      </tr>
+                    <tr><td>Celkový počet správ notify_pub</td> <td>{{u7}} </td></tr>
+                    <tr><td>Celková veľkosť správ notify_pub</td> <td>{{cu7a}} </td></tr>
+                    <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_pub</td> <td>{{u8}}</td></tr>
+                    <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_pub</td> <td>{{cu8a}}</td></tr>
+                    <tr><td>Celkový počet správ pri zmene stavu prítomnosti</td> <td>{{u9}}</td></tr>
+                    <tr><td>Celková veľkosť správ pri zmene stavu prítomnosti</td> <td>{{cu9a}}</td></tr>
+                    <tr><td>Celkový počet správ sub_refresh</td> <td>{{u10}}</td></tr>
+                    <tr><td>Celková veľkosť správ sub_refresh</td> <td>{{cu10a}}</td></tr>
+                    <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_refresh</td> <td>{{u11}}</td></tr>
+                    <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_refresh</td> <td>{{cu11a}}</td></tr>
+                    <tr><td>Celkový počet správ notify_sub</td> <td>{{u12}}</td></tr>
+                    <tr><td>Celková veľkosť správ notify_sub</td> <td>{{cu12a}}</td></tr>
+                    <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub</td> <td>{{u13}}</td></tr>
+                    <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub</td> <td>{{cu13a}}</td></tr>
+                    <tr><td>Celkový počet správ spojený s obnovovaním odberu prítomnosti</td> <td>{{u14}} </td></tr>
+                    <tr><td>Celková veľkosť správ pri obnovovaní odberu prítomnosti</td> <td>{{cu14a}}</td></tr>
+                    <tr><td>Celkové množstvo všetkých prenesených správ v ustálenej prevádzke</td> <td>{{u15}}</td></tr>
+                    <tr><td>Celková veľkosť všetkých správ v ustálenej prevádzke</td> <td>{{cu15a}}</td></tr>
                 </h2>
+            </table>
+            <table>
                 <label>Počty a veľkosti záverečných správ</label>
                 <h2 class="text-center mb-5">
-                    Celkový počet správ sub_terminal {{z5}} <br>
-                    Celková veľkosť správ sub_terminal {{cz5a}} <br>
-                    Celkový počet odpovedí 200 (OK) na správu sub_terminal {{z6}} <br>
-                    Celková veľkosť odpovedí 200 (OK) na správu sub_terminal {{cz6a}} <br>
-                    Celkový počet správ notify_sub {{z7}} <br>
-                    Celková veľkosť správ notify_sub {{cz7a}} <br>
-                    Celkový počet odpovedí 200 (OK) na správu notify_sub {{z8}} <br>
-                    Celková veľkosť odpovedí 200 (OK) na správu notify_sub {{cz8a}} <br> <br>
-                    Celkové množstvo prenesených správ {{z9}} <br>
-                    Celková veľkosť všetkých záverečných správ {{cz9a}} <br>
+                    <tr>
+                        <th>Správa</th>
+                        <th>Hodnota</th>
+                      </tr>
+                    <tr><td>Celkový počet správ sub_terminal</td> <td>{{z5}}</td></tr>
+                    <tr><td>Celková veľkosť správ sub_terminal</td> <td>{{cz5a}}</td></tr>
+                    <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_terminal</td> <td>{{z6}}</td></tr>
+                    <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_terminal</td> <td>{{cz6a}}</td></tr>
+                    <tr><td>Celkový počet správ notify_sub</td> <td>{{z7}}</td></tr>
+                    <tr><td>Celková veľkosť správ notify_sub</td> <td>{{cz7a}}</td></tr>
+                    <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub</td> <td>{{z8}}</td></tr>
+                    <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub</td> <td>{{cz8a}}</td></tr>
+                    <tr><td>Celkové množstvo prenesených správ</td> <td>{{z9}}</td></tr>
+                    <tr><td>Celková veľkosť všetkých záverečných správ</td> <td>{{cz9a}}</td></tr>
                 </h2>
+            </table>
+            <table>
                 <label>Počty a veľkosti všetkých prenesených správ</label>
                 <h2 class="text-center mb-5">
-                    Celkový počet prenesených správ {{v1}} <br>
-                    Celková veľkosť všetkých správ {{cv1a}} <br>
-                    Celkový počet prenesených správ za jednu sekundu {{v2}} <br>
-                    Celková veľkosť všetkých správ za sekundu  {{cv2a}} <br>
-                    Celkové množstvo prenesených správ jedným užívateľom {{v3}} <br>
-                    Celková veľkosť všetkých správ na užívateľa {{cv3a}} <br>
-                    
+                    <tr>
+                        <th>Správa</th>
+                        <th>Hodnota</th>
+                    </tr>
+                <tr><td>Celkový počet prenesených správ</td> <td>{{v1}}</td></tr>
+                <tr><td>Celková veľkosť všetkých správ</td> <td>{{cv1a}}</td></tr>
+                <tr><td>Celkový počet prenesených správ za jednu sekundu</td> <td>{{v2}}</td></tr>
+                <tr><td>Celková veľkosť všetkých správ za sekundu</td> <td>{{cv2a}}</td></tr>
+                <tr><td>Celkové množstvo prenesených správ jedným užívateľom</td> <td>{{v3}}</td></tr>
+                <tr><td>Celková veľkosť všetkých správ na užívateľa</td> <td>{{cv3a}}</td></tr>
                 </h2>
-                <h1> Optimalizácia služby DIALOG (využitie RLS) </h1>
+            </table>
+                
+                
+                <h1 class="text-3xl text-center rounded-full py-3 px-6 my-8"> Optimalizácia služby DIALOG (využitie RLS) </h1>
+                <table>
                 <label>Počty a veľkosti počiatočných správ</label>
                 <h2 class="text-center mb-5">
-                    Celkový počet správ sub_initial {{dp5}} <br>
-                    Celková veľkosť správ sub_initial {{dcp5a}} <br>
-                    Celkový počet odpovedí 200 (OK) na správu sub_initial {{dp6}}<br>
-                    Celková veľkosť odpovedí 200 (OK) na správu sub_initial {{dcp6a}} <br>
-                    Celkový počet správ notify_sub {{dp7}} <br>
-                    Celková veľkosť správ notify_sub {{dcp7a}}<br>
-                    Celkový počet odpovedí 200 (OK) na správu notify_sub {{dp8}} <br>
-                    Celková veľkosť odpovedí 200 (OK) na správu notify_sub {{dcp8a}} <br> <br>
-                    Celkové množstvo prenesených správ {{dp9}} <br>
-                    Celková veľkosť všetkých počiatočných správ {{dcp9a}} <br>
+                    <tr>
+                        <th>Správa</th>
+                        <th>Hodnota</th>
+                    </tr>
+                    <tr><td>Celkový počet správ sub_initial</td> <td>{{dp5}}</td></tr>
+                    <tr><td>Celková veľkosť správ sub_initial</td> <td>{{dcp5a}}</td></tr>
+                    <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_initial</td> <td>{{dp6}}</td></tr>
+                    <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_initial</td> <td>{{dcp6a}}</td></tr>
+                    <tr><td>Celkový počet správ notify_sub</td> <td>{{dp7}}</td></tr>
+                    <tr><td>Celková veľkosť správ notify_sub</td> <td>{{dcp7a}}</td></tr>
+                    <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub</td> <td>{{dp8}}</td></tr>
+                    <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub</td> <td>{{dcp8a}}</td></tr>
+                    <tr><td>Celkové množstvo prenesených správ</td> <td>{{dp9}}</td></tr>
+                    <tr><td>Celková veľkosť všetkých počiatočných správ</td> <td>{{dcp9a}}</td></tr>
                 </h2>
+            </table>
                 <label>Počty a veľkosti správ v ustálenej prevádzke
                 </label>
+                <table>
                 <h2 class="text-center mb-5">
-                    Celkový počet správ notify_pub {{du7}} <br>
-                    Celková veľkosť správ notify_pub {{dcu7a}} <br>
-                    Celkový počet odpovedí 200 (OK) na správu notify_pub {{du8}} <br>
-                    Celková veľkosť odpovedí 200 (OK) na správu notify_pub {{dcu8a}} <br> <br>
-                    Celkový počet správ pri zmene stavu prítomnosti {{du9}} <br>
-                    Celková veľkosť správ pri zmene stavu prítomnosti {{dcu9a}} <br>
-                    Celkový počet správ sub_refresh {{du10}} <br>
-                    Celková veľkosť správ sub_refresh {{dcu10a}} <br>
-                    Celkový počet odpovedí 200 (OK) na správu sub_refresh {{du11}} <br>
-                    Celková veľkosť odpovedí 200 (OK) na správu sub_refresh {{dcu11a}} <br>
-                    Celkový počet správ notify_sub {{du12}} <br>
-                    Celková veľkosť správ notify_sub {{dcu12a}} <br>
-                    Celkový počet odpovedí 200 (OK) na správu notify_sub {{du13}} <br>
-                    Celková veľkosť odpovedí 200 (OK) na správu notify_sub {{dcu13a}} <br> <br>
-                    Celkový počet správ spojený s obnovovaním odberu prítomnosti {{du14}} <br>
-                    Celková veľkosť správ pri obnovovaní odberu prítomnosti {{dcu14a}} <br> <br>
-                    Celkové množstvo všetkých prenesených správ v ustálenej prevádzke {{du15}} <br>
-                    Celková veľkosť všetkých správ v ustálenej prevádzke {{dcu15a}} <br>
+                    <tr>
+                        <th>Správa</th>
+                        <th>Hodnota</th>
+                    </tr>
+                    <tr><td>Celkový počet správ notify_pub</td> <td>{{du7}}</td></tr>
+                    <tr><td>Celková veľkosť správ notify_pub</td> <td>{{dcu7a}}</td></tr>
+                    <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_pub</td> <td>{{du8}}</td></tr>
+                    <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_pub</td> <td>{{dcu8a}}</td></tr>
+                    <tr><td>Celkový počet správ pri zmene stavu prítomnosti</td> <td>{{du9}}</td></tr>
+                    <tr><td>Celková veľkosť správ pri zmene stavu prítomnosti</td> <td>{{dcu9a}}</td></tr>
+                    <tr><td>Celkový počet správ sub_refresh</td> <td>{{du10}}</td></tr>
+                    <tr><td>Celková veľkosť správ sub_refresh</td> <td>{{dcu10a}}</td></tr>
+                    <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_refresh</td> <td>{{du11}}</td></tr>
+                    <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_refresh</td> <td>{{dcu11a}}</td></tr>
+                    <tr><td>Celkový počet správ notify_sub</td> <td>{{du12}}</td></tr>
+                    <tr><td>Celková veľkosť správ notify_sub</td> <td>{{dcu12a}}</td></tr>
+                    <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub</td> <td>{{du13}}</td></tr>
+                    <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub</td> <td>{{dcu13a}}</td></tr>
+                    <tr><td>Celkový počet správ spojený s obnovovaním odberu prítomnosti</td> <td>{{du14}}</td></tr>
+                    <tr><td>Celková veľkosť správ pri obnovovaní odberu prítomnosti</td> <td>{{dcu14a}}</td></tr>
+                    <tr><td>Celkové množstvo všetkých prenesených správ v ustálenej prevádzke</td> <td>{{du15}}</td></tr>
+                    <tr><td>Celková veľkosť všetkých správ v ustálenej prevádzke</td> <td>{{dcu15a}}</td></tr>
                 </h2>
+            </table>
                 <label>Počty a veľkosti záverečných správ</label>
+                <table>
                 <h2 class="text-center mb-5">
-                    Celkový počet správ sub_terminal {{dz5}} <br>
-                    Celková veľkosť správ sub_terminal {{dcz5a}} <br>
-                    Celkový počet odpovedí 200 (OK) na správu sub_terminal {{dz6}} <br>
-                    Celková veľkosť odpovedí 200 (OK) na správu sub_terminal {{dcz6a}} <br>
-                    Celkový počet správ notify_sub {{dz7}} <br>
-                    Celková veľkosť správ notify_sub {{dcz7a}} <br>
-                    Celkový počet odpovedí 200 (OK) na správu notify_sub {{dz8}} <br>
-                    Celková veľkosť odpovedí 200 (OK) na správu notify_sub {{dcz8a}} <br> <br>
-                    Celkové množstvo prenesených správ {{dz9}} <br>
-                    Celková veľkosť všetkých záverečných správ {{dcz9a}} <br>
+                    <tr>
+                        <th>Správa</th>
+                        <th>Hodnota</th>
+                    </tr>
+                    <tr><td>Celkový počet správ sub_terminal</td> <td>{{dz5}}</td></tr>
+                    <tr><td>Celková veľkosť správ sub_terminal</td> <td>{{dcz5a}}</td></tr>
+                    <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_terminal</td> <td>{{dz6}}</td></tr>
+                    <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_terminal</td> <td>{{dcz6a}}</td></tr>
+                    <tr><td>Celkový počet správ notify_sub</td> <td>{{dz7}}</td></tr>
+                    <tr><td>Celková veľkosť správ notify_sub</td> <td>{{dcz7a}}</td></tr>
+                    <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub</td> <td>{{dz8}}</td></tr>
+                    <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub</td> <td>{{dcz8a}}</td></tr>
+                    <tr><td>Celkové množstvo prenesených správ</td> <td>{{dz9}}</td></tr>
+                    <tr><td>Celková veľkosť všetkých záverečných správ</td> <td>{{dcz9a}}</td></tr>
                 </h2>
+            </table>
                 <label>Počty a veľkosti všetkých prenesených správ</label>
+                <table>
                 <h2 class="text-center mb-5">
-                    Celkový počet prenesených správ {{dv1}} <br>
-                    Celková veľkosť všetkých správ {{dcv1a}} <br>
-                    Celkový počet prenesených správ za jednu sekundu {{dv2}} <br>
-                    Celková veľkosť všetkých správ za sekundu  {{dcv2a}} <br>
-                    Celkové množstvo prenesených správ jedným užívateľom {{dv3}} <br>
-                    Celková veľkosť všetkých správ na užívateľa {{dcv3a}} <br>
-                    
+                    <tr>
+                        <th>Správa</th>
+                        <th>Hodnota</th>
+                    </tr>
+                    <tr><td>Celkový počet prenesených správ</td> <td>{{dv1}}</td></tr>
+                    <tr><td>Celková veľkosť všetkých správ</td> <td>{{dcv1a}}</td></tr>
+                    <tr><td>Celkový počet prenesených správ za jednu sekundu</td> <td>{{dv2}}</td></tr>
+                    <tr><td>Celková veľkosť všetkých správ za sekundu</td> <td>{{dcv2a}}</td></tr>
+                    <tr><td>Celkové množstvo prenesených správ jedným užívateľom</td> <td>{{dv3}}</td></tr>
+                    <tr><td>Celková veľkosť všetkých správ na užívateľa</td> <td>{{dcv3a}}</td></tr>
                 </h2>
+            </table>
+
+                <highcharts-chart
+                [Highcharts] = "highcharts" 
+                [options] = "firstChartOptions" 
+                style = "width: 100%; height: 400px; display: block;">
+                </highcharts-chart>
+                <highcharts-chart
+                [Highcharts] = "highcharts" 
+                [options] = "secondChartOptions" 
+                style = "width: 100%; height: 400px; display: block;">
+                </highcharts-chart>
+
+                    <h1 class="text-3xl text-center rounded-full py-3 px-6 my-8"> Optimalizácia služby NOTIFY  </h1>
+                    <table>
+                    <label>Počty a veľkosti počiatočných správ</label>
+                    <h2 class="text-center mb-5">
+                        <tr>
+                            <th>Správa</th>
+                            <th>Hodnota</th>
+                        </tr>
+                        <tr><td>Celkový počet správ sub_initial</td> <td>{{p5}}</td></tr>
+                        <tr><td>Celková veľkosť správ sub_initial</td> <td>{{cp5a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_initial</td> <td>{{p6}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_initial</td> <td>{{cp6a}}</td></tr>
+                        <tr><td>Celkový počet správ notify_sub</td> <td>{{p7}}</td></tr>
+                        <tr><td>Celková veľkosť správ notify_sub</td> <td>{{cp7a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub</td> <td>{{p8}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub</td> <td>{{cp8a}}</td></tr>
+                        <tr><td>Celkové množstvo prenesených správ</td> <td>{{p9}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých počiatočných správ</td> <td>{{cp9a}}</td></tr>
+                    </h2>
+                </table>
+                    <label>Počty a veľkosti správ v ustálenej prevádzke</label>
+                    <table>
+                    <h2 class="text-center mb-5">
+                        <tr>
+                            <th>Správa</th>
+                            <th>Hodnota</th>
+                        </tr>
+                        <tr><td>Celkový počet správ notify_pub</td> <td>{{u7}}</td></tr>
+                        <tr><td>Celková veľkosť správ notify_pub</td> <td>{{cu7a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_pub</td> <td>{{u8}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_pub</td> <td>{{cu8a}}</td></tr>
+                        <tr><td>Celkový počet správ pri zmene stavu prítomnosti</td> <td>{{u9}}</td></tr>
+                        <tr><td>Celková veľkosť správ pri zmene stavu prítomnosti</td> <td>{{cu9a}}</td></tr>
+                        <tr><td>Celkový počet správ sub_refresh</td> <td>{{u10}}</td></tr>
+                        <tr><td>Celková veľkosť správ sub_refresh</td> <td>{{cu10a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_refresh</td> <td>{{u11}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_refresh</td> <td>{{cu11a}}</td></tr>
+                        <tr><td>Celkový počet správ notify_sub</td> <td>{{nu12}}</td></tr>
+                        <tr><td>Celková veľkosť správ notify_sub</td> <td>{{ncu12a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub</td> <td>{{nu13}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub</td> <td>{{ncu13a}}</td></tr>
+                        <tr><td>Celkový počet správ spojený s obnovovaním odberu prítomnosti</td> <td>{{nu14}}</td></tr>
+                        <tr><td>Celková veľkosť správ pri obnovovaní odberu prítomnosti</td> <td>{{ncu14a}}</td></tr>
+                        <tr><td>Celkové množstvo všetkých prenesených správ v ustálenej prevádzke</td> <td>{{nu15}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých správ v ustálenej prevádzke</td> <td>{{ncu15a}}</td></tr>
+                    </h2>
+                </table>
+                    <label>Počty a veľkosti záverečných správ</label>
+                    <table>
+                    <h2 class="text-center mb-5">
+                        <tr>
+                            <th>Správa</th>
+                            <th>Hodnota</th>
+                        </tr>
+                        <tr><td>Celkový počet správ sub_terminal</td> <td>{{z5}}</td></tr>
+                        <tr><td>Celková veľkosť správ sub_terminal</td> <td>{{cz5a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_terminal</td> <td>{{z6}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_terminal</td> <td>{{cz6a}}</td></tr>
+                        <tr><td>Celkový počet správ notify_sub</td> <td>{{nz7}}</td></tr>
+                        <tr><td>Celková veľkosť správ notify_sub</td> <td>{{ncz7a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub</td> <td>{{nz8}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub</td> <td>{{ncz8a}}</td></tr>
+                        <tr><td>Celkové množstvo prenesených správ</td> <td>{{nz9}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých záverečných správ</td> <td>{{ncz9a}}</td></tr>
+                    </h2>
+                </table>
+                    <label>Počty a veľkosti všetkých prenesených správ</label>
+                    <table>
+                    <h2 class="text-center mb-5">
+                        <tr>
+                            <th>Správa</th>
+                            <th>Hodnota</th>
+                        </tr>
+                        <tr><td>Celkový počet prenesených správ</td> <td>{{nv1}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých správ</td> <td>{{ncv1a}}</td></tr>
+                        <tr><td>Celkový počet prenesených správ za jednu sekundu</td> <td>{{nv2}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých správ za sekundu</td> <td>{{ncv2a}}</td></tr>
+                        <tr><td>Celkové množstvo prenesených správ jedným užívateľom</td> <td>{{nv3}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých správ na užívateľa</td> <td>{{ncv3a}}</td></tr>
+                    </h2>
+                </table>
+                    <highcharts-chart
+                    [Highcharts] = "highcharts" 
+                    [options] = "thirdChartOptions" 
+                    style = "width: 100%; height: 400px; display: block;">
+                    </highcharts-chart>
+                    <highcharts-chart
+                    [Highcharts] = "highcharts" 
+                    [options] = "fourthChartOptions" 
+                    style = "width: 100%; height: 400px; display: block;">
+                    </highcharts-chart>
+
+                    <h1 class="text-3xl text-center rounded-full py-3 px-6 my-8"> Čiastočná optimalizácia NOTIFY  </h1>
+                    <label>Počty a veľkosti počiatočných správ</label>
+                    <table>
+                    <h2 class="text-center mb-5">
+                        <tr>
+                            <th>Správa</th>
+                            <th>Hodnota</th>
+                        </tr>
+                        <tr><td>Celkový počet správ sub_initial</td> <td>{{p5}}</td></tr>
+                        <tr><td>veľkosť správ sub_initial</td> <td>{{cp5a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_initial</td> <td>{{p6}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_initial</td> <td>{{cp6a}}</td></tr>
+                        <tr><td>Celkový počet správ notify_sub</td> <td>{{p7}}</td></tr>
+                        <tr><td>Celková veľkosť správ notify_sub</td> <td>{{cp7a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub</td> <td>{{p8}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub</td> <td>{{cp8a}}</td></tr>
+                        <tr><td>Celkové množstvo prenesených správ</td> <td>{{p9}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých počiatočných správ</td> <td>{{cp9a}}</td></tr>
+                    </h2>
+                </table>
+                    <label>Počty a veľkosti správ v ustálenej prevádzke</label>
+                    <table>
+                    <h2 class="text-center mb-5">
+                        <tr>
+                            <th>Správa</th>
+                            <th>Hodnota</th>
+                        </tr>
+                        <tr><td>Celkový počet správ notify_pub</td> <td>{{pu7}}</td></tr>
+                        <tr><td>Celková veľkosť správ notify_pub</td> <td>{{pcu7a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_pub</td> <td>{{pu8}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_pub</td> <td>{{pcu8a}}</td></tr>
+                        <tr><td>Celkový počet správ pri zmene stavu prítomnosti</td> <td>{{pu9}}</td></tr>
+                        <tr><td>Celková veľkosť správ pri zmene stavu prítomnosti</td> <td>{{pcu9a}}</td></tr>
+                        <tr><td>Celkový počet správ sub_refresh</td> <td>{{pu10}}</td></tr>
+                        <tr><td>Celková veľkosť správ sub_refresh</td> <td>{{pcu10a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_refresh</td> <td>{{pu11}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_refresh</td> <td>{{pcu11a}}</td></tr>
+                        <tr><td>Celkový počet správ notify_sub</td> <td>{{pu12}}</td></tr>
+                        <tr><td>Celková veľkosť správ notify_sub</td> <td>{{pcu12a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub</td> <td>{{pu13}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub</td> <td>{{pcu13a}}</td></tr>
+                        <tr><td>Celkový počet správ spojený s obnovovaním odberu prítomnosti</td> <td>{{pu14}}</td></tr>
+                        <tr><td>Celková veľkosť správ pri obnovovaní odberu prítomnosti</td> <td>{{pcu14a}}</td></tr>
+                        <tr><td>Celkové množstvo všetkých prenesených správ v ustálenej prevádzke</td> <td>{{pu15}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých správ v ustálenej prevádzke</td> <td>{{pcu15a}}</td></tr>
+                    </h2>
+                </table>
+                    <label>Počty a veľkosti záverečných správ</label>
+                    <table>
+                    <h2 class="text-center mb-5">
+                        <tr>
+                            <th>Správa</th>
+                            <th>Hodnota</th>
+                        </tr>
+                        <tr><td>Celkový počet správ sub_terminal</td> <td>{{z5}}</td></tr>
+                        <tr><td>Celková veľkosť správ sub_terminal</td> <td>{{cz5a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_terminal</td> <td>{{z6}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_terminal</td> <td>{{cz6a}}</td></tr>
+                        <tr><td>Celkový počet správ notify_sub</td> <td>{{pz7}}</td></tr>
+                        <tr><td>Celková veľkosť správ notify_sub</td> <td>{{pcz7a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub</td> <td>{{pz8}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub</td> <td>{{pcz8a}}</td></tr>
+                        <tr><td>Celkové množstvo prenesených správ</td> <td>{{pz9}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých záverečných správ</td> <td>{{pcz9a}}</td></tr>
+                    </h2>
+                </table>
+                    <label>Počty a veľkosti všetkých prenesených správ</label>
+                    <table>
+                    <h2 class="text-center mb-5">
+                        <tr>
+                            <th>Správa</th>
+                            <th>Hodnota</th>
+                        </tr>
+                        <tr><td>Celkový počet prenesených správ</td> <td>{{pv1}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých správ</td> <td>{{pcv1a}}</td></tr>
+                        <tr><td>Celkový počet prenesených správ za jednu sekundu</td> <td>{{pv2}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých správ za sekundu</td> <td>{{pcv2a}}</td></tr>
+                        <tr><td>Celkové množstvo prenesených správ jedným užívateľom</td> <td>{{pv3}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých správ na užívateľa</td> <td>{{pcv3a}}</td></tr>
+                    </h2>
+                </table>
+                    <highcharts-chart
+                    [Highcharts] = "highcharts" 
+                    [options] = "fifthChartOptions" 
+                    style = "width: 100%; height: 400px; display: block;">
+                    </highcharts-chart>
+                    <highcharts-chart
+                    [Highcharts] = "highcharts" 
+                    [options] = "sixthChartOptions" 
+                    style = "width: 100%; height: 400px; display: block;">
+                    </highcharts-chart>
+
+                    <h1 class="text-3xl text-center rounded-full py-3 px-6 my-8"> Kombinácia predošlých optimalizácií  </h1>
+                    <label>Počty a veľkosti počiatočných správ</label>
+                    <table>
+                    <h2 class="text-center mb-5">
+                        <tr>
+                            <th>Správa</th>
+                            <th>Hodnota</th>
+                        </tr>
+                        <tr><td>Celkový počet správ sub_initial</td> <td>{{dp5}}</td></tr>
+                        <tr><td>veľkosť správ sub_initial</td> <td>{{dcp5a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_initial</td> <td>{{dp6}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_initial</td> <td>{{dcp6a}}</td></tr>
+                        <tr><td>Celkový počet správ notify_sub</td> <td>{{dp7}}</td></tr>
+                        <tr><td>Celková veľkosť správ notify_sub</td> <td>{{dcp7a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub</td> <td>{{dp8}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub</td> <td>{{dcp8a}}</td></tr>
+                        <tr><td>Celkové množstvo prenesených správ</td> <td>{{dp9}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých počiatočných správ</td> <td>{{dcp9a}}</td></tr>
+                    </h2>
+                </table>
+                    <label>Počty a veľkosti správ v ustálenej prevádzke</label>
+                    <table>
+                    <h2 class="text-center mb-5">
+                        <tr>
+                            <th>Správa</th>
+                            <th>Hodnota</th>
+                        </tr>
+                        <tr><td>Celkový počet správ notify_pub</td> <td>{{bu7}}</td></tr>
+                        <tr><td>Celková veľkosť správ notify_pub</td> <td>{{bcu7a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_pub</td> <td>{{bu8}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_pub</td> <td>{{bcu8a}}</td></tr>
+                        <tr><td>Celkový počet správ pri zmene stavu prítomnosti</td> <td>{{bu9}}</td></tr>
+                        <tr><td>Celková veľkosť správ pri zmene stavu prítomnosti</td> <td>{{bcu9a}}</td></tr>
+                        <tr><td>Celkový počet správ sub_refresh</td> <td>{{bu10}}</td></tr>
+                        <tr><td>Celková veľkosť správ sub_refresh</td> <td>{{bcu10a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_refresh</td> <td>{{bu11}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_refresh</td> <td>{{bcu11a}}</td></tr>
+                        <tr><td>Celkový počet správ notify_sub</td> <td>{{bu12}}</td></tr>
+                        <tr><td>Celková veľkosť správ notify_sub</td> <td>{{bcu12a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub</td> <td>{{bu13}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub</td> <td>{{bcu13a}}</td></tr>
+                        <tr><td>Celkový počet správ spojený s obnovovaním odberu prítomnosti</td> <td>{{bu14}}</td></tr>
+                        <tr><td>Celková veľkosť správ pri obnovovaní odberu prítomnosti</td> <td>{{bcu14a}}</td></tr>
+                        <tr><td>Celkové množstvo všetkých prenesených správ v ustálenej prevádzke</td> <td>{{bu15}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých správ v ustálenej prevádzke</td> <td>{{bcu15a}}</td></tr>
+                    </h2>
+                </table>
+                    <label>Počty a veľkosti záverečných správ</label>
+                    <table>
+                    <h2 class="text-center mb-5">
+                        <tr>
+                            <th>Správa</th>
+                            <th>Hodnota</th>
+                        </tr>
+                        <tr><td>Celkový počet správ sub_terminal</td> <td>{{dz5}}</td></tr>
+                        <tr><td>Celková veľkosť správ sub_terminal</td> <td>{{dcz5a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu sub_terminal</td> <td>{{dz6}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu sub_terminal</td> <td>{{dcz6a}}</td></tr>
+                        <tr><td>Celkový počet správ notify_sub</td> <td>{{bz7}}</td></tr>
+                        <tr><td>Celková veľkosť správ notify_sub</td> <td>{{bcz7a}}</td></tr>
+                        <tr><td>Celkový počet odpovedí 200 (OK) na správu notify_sub</td> <td>{{bz8}}</td></tr>
+                        <tr><td>Celková veľkosť odpovedí 200 (OK) na správu notify_sub</td> <td>{{bcz8a}}</td></tr>
+                        <tr><td>Celkové množstvo prenesených správ</td> <td>{{bz9}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých záverečných správ</td> <td>{{bcz9a}}</td></tr>
+                    </h2>
+                </table>
+                    <label>Počty a veľkosti všetkých prenesených správ</label>
+                    <table>
+                    <h2 class="text-center mb-5">
+                        <tr>
+                            <th>Správa</th>
+                            <th>Hodnota</th>
+                        </tr>
+                        <tr><td>Celkový počet prenesených správ</td> <td>{{bv1}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých správ</td> <td>{{bcv1a}}</td></tr>
+                        <tr><td>Celkový počet prenesených správ za jednu sekundu</td> <td>{{bv2}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých správ za sekundu</td> <td>{{bcv2a}}</td></tr>
+                        <tr><td>Celkové množstvo prenesených správ jedným užívateľom</td> <td>{{bv3}}</td></tr>
+                        <tr><td>Celková veľkosť všetkých správ na užívateľa</td> <td>{{bcv3a}}</td></tr>
+                    </h2>
+                </table>
+                    <highcharts-chart
+                    [Highcharts] = "highcharts" 
+                    [options] = "seventhChartOptions" 
+                    style = "width: 100%; height: 400px; display: block;">
+                    </highcharts-chart>
+                    <highcharts-chart
+                    [Highcharts] = "highcharts" 
+                    [options] = "eightChartOptions" 
+                    style = "width: 100%; height: 400px; display: block;">
+                    </highcharts-chart>
             </div>
         </div>
     </div>
