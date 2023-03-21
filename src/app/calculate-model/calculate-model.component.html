@@ -50,6 +50,22 @@
                     Vypočítať
                 </button>
             </form>
+            <nav>
+                <ul>
+                  <li><a href="#" id="baseServ">Neoptimalizovana Služba</a></li>
+                  <li><a href="#" id="dialogServ">Optimalizácia Dialog</a></li>
+                  <li><a href="#" id="notifyServ">Optimalizacia NOTIFY</a></li>
+                  <li><a href="#" id="partialServ">Ciastocna Optimalizacia NOTIFY</a></li>
+                  <li><a href="#" id="combinationServ">Kombinácia vsetkych optimalizacii</a></li>
+                </ul>
+              </nav>
+              <!-- Hidden HTML fields -->
+                <div id="home">Home Page</div>
+                <div id="about">About Us Page</div>
+                <div id="services">Services Page</div>
+                <div id="contact">Contact Page</div>
+                <div id="contacts">Contact Page</div>
+
             <div [hidden]="!submited">
                 <h1 class="text-3xl text-center rounded-full py-3 px-6 my-8"> Neoptimalizovaná služba </h1>
                 <label>Počty a veľkosti počiatočných správ</label>
@@ -223,11 +239,14 @@
                 [options] = "firstChartOptions" 
                 style = "width: 100%; height: 400px; display: block;">
                 </highcharts-chart>
+                <label>Počet všetkých správ sa zmenil o {{percentageDifference}}% </label>
+
                 <highcharts-chart
                 [Highcharts] = "highcharts" 
                 [options] = "secondChartOptions" 
                 style = "width: 100%; height: 400px; display: block;">
                 </highcharts-chart>
+                <label>Veľkosť všetkých správ sa zmenila o {{percentageDifference1}}% </label>
 
                     <h1 class="text-3xl text-center rounded-full py-3 px-6 my-8"> Optimalizácia služby NOTIFY  </h1>
                     <table>
@@ -315,11 +334,14 @@
                     [options] = "thirdChartOptions" 
                     style = "width: 100%; height: 400px; display: block;">
                     </highcharts-chart>
+                    <label>Počet všetkých správ sa zmenil o {{percentageDifference2}}% </label>
+
                     <highcharts-chart
                     [Highcharts] = "highcharts" 
                     [options] = "fourthChartOptions" 
                     style = "width: 100%; height: 400px; display: block;">
                     </highcharts-chart>
+                    <label>Veľkosť všetkých správ sa zmenila o {{percentageDifference3}}% </label>
 
                     <h1 class="text-3xl text-center rounded-full py-3 px-6 my-8"> Čiastočná optimalizácia NOTIFY  </h1>
                     <label>Počty a veľkosti počiatočných správ</label>
@@ -407,11 +429,14 @@
                     [options] = "fifthChartOptions" 
                     style = "width: 100%; height: 400px; display: block;">
                     </highcharts-chart>
+                    <label>Počet všetkých správ sa zmenil o {{percentageDifference4}}% </label>
+
                     <highcharts-chart
                     [Highcharts] = "highcharts" 
                     [options] = "sixthChartOptions" 
                     style = "width: 100%; height: 400px; display: block;">
                     </highcharts-chart>
+                    <label>Veľkosť všetkých správ sa zmenila o {{percentageDifference5}}% </label>
 
                     <h1 class="text-3xl text-center rounded-full py-3 px-6 my-8"> Kombinácia predošlých optimalizácií  </h1>
                     <label>Počty a veľkosti počiatočných správ</label>
@@ -499,47 +524,15 @@
                     [options] = "seventhChartOptions" 
                     style = "width: 100%; height: 400px; display: block;">
                     </highcharts-chart>
+                    <label>Počet všetkých správ sa zmenil o {{percentageDifference6}}% </label>
+
                     <highcharts-chart
                     [Highcharts] = "highcharts" 
                     [options] = "eightChartOptions" 
                     style = "width: 100%; height: 400px; display: block;">
                     </highcharts-chart>
+                    <label>Veľkosť všetkých správ sa zmenila o {{percentageDifference7}}% </label>
             </div>
         </div>
     </div>
 </div>
-
-<!-- <div class="mb-6">
-    <label for="odoberania" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Dĺžka odoberania
-        prítomnosti v hodinách denne:</label>
-    <input type="text" id="base-input"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-</div>
-
-<div class="mb-6">
-    <label for="zmeny" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Počet zmien stavu
-        prítomnosti za jednu hodinu:</label>
-    <input type="text" id="base-input"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-</div>
-
-<div class="mb-6">
-    <label for="obnovenia" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Počet obnovení odberu
-        (sub_refresh) za hodinu</label>
-    <input type="text" id="base-input"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-</div>
-
-<div class="mb-6">
-    <label for="odoberania" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Počet odoberaných
-        entít prítomnosti na jedného pozorovateľa:</label>
-    <input type="text" id="base-input"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-</div>
-
-<div class="mb-6">
-    <label for="pozorovatelia" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Celkový počet
-        pozorovateľov:</label>
-    <input type="text" id="base-input"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-</div> -->

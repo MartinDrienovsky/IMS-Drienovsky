@@ -35,10 +35,19 @@ enum GraphType {
   `
 })
 
+
 export class CalculateModelComponent implements OnInit {
   FormData: FormGroup;
   ModalComponent: any;
   closeResult = '';
+  percentageDifference: number;
+  percentageDifference1: number;
+  percentageDifference2: number;
+  percentageDifference3: number;
+  percentageDifference4: number;
+  percentageDifference5: number;
+  percentageDifference6: number;
+  percentageDifference7: number;
   constructor(
     private builder: FormBuilder,
     private httpClient: HttpClient,
@@ -359,7 +368,55 @@ submited: boolean = false;
 
   calculateValues(odoberania: number, zmeny: number, obnovenia: number, pocetOdoberania: number, pozorovatelia: number, graphType: GraphType){
 
-    
+    // Get references to the navigation links
+const baseServ = document.getElementById('baseServ') as HTMLAnchorElement;
+const dialogServ = document.getElementById('dialogServ') as HTMLAnchorElement;
+const notifyServ = document.getElementById('notifyServ') as HTMLAnchorElement;
+const partialServ = document.getElementById('partialServ') as HTMLAnchorElement;
+const combinationServ = document.getElementById('combinationServ') as HTMLAnchorElement;
+
+// Get references to the hidden HTML fields
+const home = document.getElementById('home') as HTMLElement;
+const about = document.getElementById('about') as HTMLElement;
+const services = document.getElementById('services') as HTMLElement;
+const contact = document.getElementById('contact') as HTMLElement;
+const contacts = document.getElementById('contact') as HTMLElement;
+
+// Add event listeners to the navigation links
+baseServ.addEventListener('click', () => {
+  home.style.display = 'block';
+  about.style.display = 'none';
+  services.style.display = 'none';
+  contact.style.display = 'none';
+});
+
+dialogServ.addEventListener('click', () => {
+  home.style.display = 'none';
+  about.style.display = 'block';
+  services.style.display = 'none';
+  contact.style.display = 'none';
+});
+
+notifyServ.addEventListener('click', () => {
+  home.style.display = 'none';
+  about.style.display = 'none';
+  services.style.display = 'block';
+  contact.style.display = 'none';
+});
+
+partialServ.addEventListener('click', () => {
+  home.style.display = 'none';
+  about.style.display = 'none';
+  services.style.display = 'none';
+  contact.style.display = 'block';
+});
+
+combinationServ.addEventListener('click', () => {
+  home.style.display = 'none';
+  about.style.display = 'none';
+  services.style.display = 'none';
+  contact.style.display = 'block';
+});
     // Non optimized
     this.p5 = this.calculateP5(pozorovatelia, pocetOdoberania)
     this.p5a = this.calculateP5A(pozorovatelia, pocetOdoberania, 450)
@@ -528,6 +585,8 @@ submited: boolean = false;
     }
      ]
     }
+    this.percentageDifference = this.calculatePercentageDifference(this.dv1, this.v1);
+
 
     let chartOptions1 = {   
       chart: {
@@ -541,7 +600,7 @@ submited: boolean = false;
      },
      yAxis: {          
         title:{
-           text:"Veľkosť"
+           text:"Veľkosť správ v bajtoch"
         } 
      },
      series: [
@@ -555,6 +614,7 @@ submited: boolean = false;
     }
      ]
     }
+    this.percentageDifference1 = this.calculatePercentageDifference(this.dv1a, this.v1a);
 
     // Notify optimized
 
@@ -617,6 +677,8 @@ submited: boolean = false;
     }
      ]
     };
+    this.percentageDifference2 = this.calculatePercentageDifference(this.nv1, this.v1);
+
     let chartOptions3 =  {   
     chart: {
       type: "bar"
@@ -629,7 +691,7 @@ submited: boolean = false;
     },
     yAxis: {          
       title:{
-         text:"Veľkosť"
+        text:"Veľkosť správ v bajtoch"
       } 
     },
     series: [
@@ -643,6 +705,7 @@ submited: boolean = false;
     }
     ]  
     }
+    this.percentageDifference3 = this.calculatePercentageDifference(this.nv1a, this.v1a);
 
     // Partial Notify optimized
 
@@ -720,6 +783,8 @@ submited: boolean = false;
     }
      ]
     };
+    this.percentageDifference4 = this.calculatePercentageDifference(this.pv1, this.v1);
+
     let chartOptions5 =  {   
     chart: {
       type: "bar"
@@ -732,7 +797,7 @@ submited: boolean = false;
     },
     yAxis: {          
       title:{
-         text:"Veľkosť"
+        text:"Veľkosť správ v bajtoch"
       } 
     },
     series: [
@@ -746,6 +811,7 @@ submited: boolean = false;
     }
     ]  
     }
+    this.percentageDifference5 = this.calculatePercentageDifference(this.pv1a, this.v1a);
 
     // Combination DIALOG, NOTIFY and PARTIAL NOTIFY optimized
 
@@ -823,6 +889,7 @@ submited: boolean = false;
     }
      ]
     }
+    this.percentageDifference6 = this.calculatePercentageDifference(this.bv1, this.v1);
 
     let chartOptions7 = {   
       chart: {
@@ -836,7 +903,7 @@ submited: boolean = false;
      },
      yAxis: {          
         title:{
-           text:"Veľkosť"
+          text:"Veľkosť správ v bajtoch"
         } 
      },
      series: [
@@ -850,6 +917,7 @@ submited: boolean = false;
     }
      ]
     }
+    this.percentageDifference7 = this.calculatePercentageDifference(this.bv1a, this.v1a);
 
     switch(graphType) {
       case GraphType.USER_DATA:
@@ -1226,7 +1294,15 @@ submited: boolean = false;
     else return (number1 / number2)
   }
 
-   // Notify optimized
+  calculatePercentageDifference(currentValue: number, previousValue: number): number {
+    const difference = currentValue - previousValue;
+    const percentageDifference = ((difference / previousValue) * 100).toFixed(2);
+    const num = parseFloat(percentageDifference);
+    if (num < 0){
+      return (num * (-1));
+    }
+    else return num;
+  }
 
 
   bytesToStringSize(bytes: number): string {
