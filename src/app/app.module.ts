@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ContactService } from './contact.service';
 import { DialogComponent } from './contact-form/dialog/dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 import { CalculateModelComponent } from './calculate-model/calculate-model.component';
 // TODO@martind
 // import { HighchartsChartModule } from 'highcharts-angular';
