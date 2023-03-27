@@ -14,7 +14,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DialogComponent } from './contact-form/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CalculateModelComponent } from './calculate-model/calculate-model.component';
-import { HighchartsChartModule } from 'highcharts-angular';
+// TODO@martind
+// import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     BrowserAnimationsModule,
     AppRoutingModule,
     MatDialogModule,
-    HighchartsChartModule,
+    // TODO@martind
+    // HighchartsChartModule,
   ],
   providers: [ContactService],
   bootstrap: [AppComponent],
