@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
 // import { Chart } from 'highcharts';
 // import { HighchartsChartComponent } from 'highcharts-angular';
 import {
-  FormBuilder,
-  FormGroup,
-  FormControl,
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  UntypedFormControl,
   Validators,
 } from '@angular/forms';
 import {
@@ -39,7 +39,7 @@ enum GraphType {
 
 
 export class CalculateModelComponent implements OnInit {
-  FormData: FormGroup;
+  FormData: UntypedFormGroup;
   ModalComponent: any;
   closeResult = '';
   percentageDifference: number;
@@ -51,7 +51,7 @@ export class CalculateModelComponent implements OnInit {
   percentageDifference6: number;
   percentageDifference7: number;
   constructor(
-    private builder: FormBuilder,
+    private builder: UntypedFormBuilder,
     private httpClient: HttpClient,
     public dialog: MatDialog
   ) {}
@@ -344,11 +344,11 @@ submited: boolean = false;
 
   ngOnInit(): void {
     this.FormData = this.builder.group({
-      odoberania: new FormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
-      zmeny: new FormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
-      obnovenia: new FormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
-      pocetOdoberania: new FormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
-      pozorovatelia: new FormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
+      odoberania: new UntypedFormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
+      zmeny: new UntypedFormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
+      obnovenia: new UntypedFormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
+      pocetOdoberania: new UntypedFormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
+      pozorovatelia: new UntypedFormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
     });
   }
 
