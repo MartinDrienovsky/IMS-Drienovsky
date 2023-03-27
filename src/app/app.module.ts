@@ -10,7 +10,6 @@ import { HeaderComponent } from './core/components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ContactService } from './contact.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DialogComponent } from './contact-form/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CalculateModelComponent } from './calculate-model/calculate-model.component';
