@@ -26,7 +26,7 @@
     "bootstrap": "^4.6.2",
     "ngx-bootstrap": "^6.2.0",
     "ngx-line-chart": "^1.0.0",
-    "rxjs": "~6.6.0",
+    "rxjs": "~7.8.0",
     "tailwindcss": "^2.2.19",
     "tslib": "^2.5.0",
     "zone.js": "~0.11.4"
