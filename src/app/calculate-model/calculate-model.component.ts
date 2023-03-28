@@ -425,7 +425,7 @@ combinationServ.addEventListener('click', () => {
     this.p6a = this.calculateP6A(pozorovatelia, pocetOdoberania, 370)
     this.cp6a = this.bytesToStringSize(this.p6a);
     this.p7 = this.calculateP7(pozorovatelia, pocetOdoberania)
-    this.p7a = this.calculateP7A(pocetOdoberania, pozorovatelia, 500, 3000)
+    this.p7a = this.calculateP7A(pocetOdoberania, pozorovatelia, 500, 5000)
     this.cp7a = this.bytesToStringSize(this.p7a);
     this.p8 = this.calculateP8(pozorovatelia, pocetOdoberania)
     this.p8a = this.calculateP8A(pozorovatelia, pocetOdoberania, 370)
@@ -435,7 +435,7 @@ combinationServ.addEventListener('click', () => {
     this.cp9a = this.bytesToStringSize(this.p9a);
 
     this.u7 = this.calculateU7(pozorovatelia, odoberania, zmeny, pocetOdoberania)
-    this.u7a = this.calculateU7A(pozorovatelia, pocetOdoberania, 500, 3000, odoberania, zmeny)
+    this.u7a = this.calculateU7A(pozorovatelia, pocetOdoberania, 500, 5000, odoberania, zmeny)
     this.cu7a = this.bytesToStringSize(this.u7a);
     this.u8 = this.calculateU8(pozorovatelia, odoberania, zmeny, pocetOdoberania)
     this.u8a = this.calculateU8A(pozorovatelia, odoberania, zmeny, pocetOdoberania, 370)
@@ -450,7 +450,7 @@ combinationServ.addEventListener('click', () => {
     this.u11a = this.calculateU11A(pozorovatelia, odoberania, obnovenia, pocetOdoberania, 370)
     this.cu11a = this.bytesToStringSize(this.u11a);
     this.u12 = this.calculateU12(pozorovatelia, odoberania, obnovenia, pocetOdoberania)
-    this.u12a = this.calculateU12A(pozorovatelia, odoberania, obnovenia, pocetOdoberania, 500, 3000)
+    this.u12a = this.calculateU12A(pozorovatelia, odoberania, obnovenia, pocetOdoberania, 500, 5000)
     this.cu12a = this.bytesToStringSize(this.u12a);
     this.u13 = this.calculateU13(pozorovatelia, odoberania, obnovenia, pocetOdoberania)
     this.u13a = this.calculateU13A(pozorovatelia, odoberania, obnovenia, pocetOdoberania, 370)
@@ -469,7 +469,7 @@ combinationServ.addEventListener('click', () => {
     this.z6a = this.calculateP6A(pozorovatelia, pocetOdoberania, 370)
     this.cz6a = this.bytesToStringSize(this.z6a);
     this.z7 = this.calculateP7(pozorovatelia, pocetOdoberania)
-    this.z7a = this.calculateP7A( pocetOdoberania, pozorovatelia, 500, 3000)
+    this.z7a = this.calculateP7A( pocetOdoberania, pozorovatelia, 500, 5000)
     this.cz7a = this.bytesToStringSize(this.z7a);
     this.z8 = this.calculateP8(pozorovatelia, pocetOdoberania)
     this.z8a = this.calculateP8A(pozorovatelia, pocetOdoberania, 370)
@@ -496,7 +496,7 @@ combinationServ.addEventListener('click', () => {
     this.dp6a = this.calculateDP6A(pozorovatelia, 1, 370)
     this.dcp6a = this.bytesToStringSize(this.dp6a);
     this.dp7 = this.calculateDP7(pozorovatelia, 1)
-    this.dp7a = this.calculateDP7A(1, pozorovatelia, 500, 3000, pocetOdoberania)
+    this.dp7a = this.calculateDP7A(1, pozorovatelia, 500, 5000, pocetOdoberania)
     this.dcp7a = this.bytesToStringSize(this.dp7a);
     this.dp8 = this.calculateDP8(pozorovatelia, 1)
     this.dp8a = this.calculateDP8A(pozorovatelia, 1, 370)
@@ -506,7 +506,7 @@ combinationServ.addEventListener('click', () => {
     this.dcp9a = this.bytesToStringSize(this.dp9a);
 
     this.du7 = this.calculateDU7(pozorovatelia, odoberania, zmeny, pocetOdoberania)
-    this.du7a = this.calculateDU7A(pozorovatelia, pocetOdoberania, 500, 3000, odoberania, zmeny)
+    this.du7a = this.calculateDU7A(pozorovatelia, pocetOdoberania, 500, 5000, odoberania, zmeny)
     this.dcu7a = this.bytesToStringSize(this.du7a);
     this.du8 = this.calculateDU8(pozorovatelia, odoberania, zmeny, pocetOdoberania)
     this.du8a = this.calculateDU8A(pozorovatelia, odoberania, zmeny, pocetOdoberania, 370)
@@ -521,7 +521,7 @@ combinationServ.addEventListener('click', () => {
     this.du11a = this.calculateDU11A(pozorovatelia, odoberania, obnovenia, 1, 370)
     this.dcu11a = this.bytesToStringSize(this.du11a);
     this.du12 = this.calculateDU12(pozorovatelia, odoberania, obnovenia, 1)
-    this.du12a = this.calculateDU12A(pozorovatelia, odoberania, obnovenia, pocetOdoberania, 500, 3000)
+    this.du12a = this.calculateDU12A(pozorovatelia, odoberania, obnovenia, pocetOdoberania, 500, 5000)
     this.dcu12a = this.bytesToStringSize(this.du12a);
     this.du13 = this.calculateDU13(pozorovatelia, odoberania, obnovenia, 1)
     this.du13a = this.calculateDU13A(pozorovatelia, odoberania, obnovenia, pocetOdoberania, 370)
@@ -540,7 +540,7 @@ combinationServ.addEventListener('click', () => {
     this.dz6a = this.calculateDP6A(pozorovatelia, 1, 370)
     this.dcz6a = this.bytesToStringSize(this.dz6a);
     this.dz7 = this.calculateDP7(pozorovatelia, 1)
-    this.dz7a = this.calculateDP7A(1, pozorovatelia, 500, 3000, pocetOdoberania)
+    this.dz7a = this.calculateDP7A(1, pozorovatelia, 500, 5000, pocetOdoberania)
     this.dcz7a = this.bytesToStringSize(this.dz7a);
     this.dz8 = this.calculateDP8(pozorovatelia, 1)
     this.dz8a = this.calculateDP8A(pozorovatelia, 1, 370)
@@ -778,7 +778,7 @@ combinationServ.addEventListener('click', () => {
          data: [this.v1]
       },
       {
-       name: 'Optimalizácia služby NOTIFY',
+       name: 'Čiastočná optimalizácia NOTIFY',
        data: [this.pv1]
     }
      ]
@@ -806,7 +806,7 @@ combinationServ.addEventListener('click', () => {
        data: [this.v1a]
     },
     {
-     name: 'Optimalizácia služby NOTIFY',
+     name: 'Čiastočná optimalizácia NOTIFY',
      data: [this.pv1a]
     }
     ]  
@@ -884,7 +884,7 @@ combinationServ.addEventListener('click', () => {
          data: [this.v1]
       },
       {
-       name: 'Služba optimalizovaná pomocou RLS',
+       name: 'Služba optimalizovaná pomocou optimalizácie DIALOG, NOTIFY a čiastočnej optimalizácie NOTIFY',
        data: [this.bv1]
     }
      ]
@@ -912,7 +912,7 @@ combinationServ.addEventListener('click', () => {
          data: [this.v1a]
       },
       {
-       name: 'Služba optimalizovaná pomocou RLS',
+       name: 'Služba optimalizovaná pomocou optimalizácie DIALOG, NOTIFY a čiastočnej optimalizácie NOTIFY',
        data: [this.bv1a]
     }
      ]
