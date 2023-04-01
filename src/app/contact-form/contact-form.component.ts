@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
-  FormBuilder,
-  FormGroup,
-  FormControl,
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  UntypedFormControl,
   Validators,
 } from '@angular/forms';
 import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+  MatLegacyDialog as MatDialog,
+  MatLegacyDialogRef as MatDialogRef,
+  MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
+} from '@angular/material/legacy-dialog';
 import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
@@ -19,22 +19,22 @@ import { DialogComponent } from './dialog/dialog.component';
   styleUrls: ['./contact-form.component.css'],
 })
 export class ContactFormComponent implements OnInit {
-  FormData: FormGroup;
+  FormData: UntypedFormGroup;
   ModalComponent: any;
   closeResult = '';
   constructor(
-    private builder: FormBuilder,
+    private builder: UntypedFormBuilder,
     private httpClient: HttpClient,
     public dialog: MatDialog
   ) {}
 /* Defining of contact form parameters */
   ngOnInit(): void {
     this.FormData = this.builder.group({
-      Fullname: new FormControl('', [Validators.required]),
-      Email: new FormControl('', [
+      Fullname: new UntypedFormControl('', [Validators.required]),
+      Email: new UntypedFormControl('', [
         Validators.compose([Validators.required, Validators.email]),
       ]),
-      Comment: new FormControl('', [Validators.required]),
+      Comment: new UntypedFormControl('', [Validators.required]),
     });
   }
 /* On submit click method to send the request to remote server which process it and redirects to my email. */

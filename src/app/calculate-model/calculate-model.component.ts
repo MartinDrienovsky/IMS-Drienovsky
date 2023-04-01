@@ -1,20 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+
 import * as Highcharts from 'highcharts';
-import HC_exporting from 'highcharts/modules/exporting';
-import { Chart } from 'highcharts';
-import { HighchartsChartComponent } from 'highcharts-angular';
 import {
-  FormBuilder,
-  FormGroup,
-  FormControl,
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  UntypedFormControl,
   Validators,
 } from '@angular/forms';
 import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+  MatLegacyDialog as MatDialog,
+} from '@angular/material/legacy-dialog';
 
 enum GraphType {
   USER_DATA,
@@ -25,19 +21,12 @@ enum GraphType {
 @Component({
   selector: 'app-calculate-model',
   templateUrl: './calculate-model.component.html',
-  styleUrls: ['./calculate-model.component.css'],
-  template: `
-    <highcharts-chart
-      [Highcharts]="Highcharts"
-      [options]="chartOptions"
-      style="width: 100%; height: 400px; display: block;">
-    </highcharts-chart>
-  `
+  styleUrls: ['./calculate-model.component.css']
 })
 
 
 export class CalculateModelComponent implements OnInit {
-  FormData: FormGroup;
+  FormData: UntypedFormGroup;
   ModalComponent: any;
   closeResult = '';
   percentageDifference: number;
@@ -49,7 +38,7 @@ export class CalculateModelComponent implements OnInit {
   percentageDifference6: number;
   percentageDifference7: number;
   constructor(
-    private builder: FormBuilder,
+    private builder: UntypedFormBuilder,
     private httpClient: HttpClient,
     public dialog: MatDialog
   ) {}
@@ -342,15 +331,15 @@ submited: boolean = false;
 
   ngOnInit(): void {
     this.FormData = this.builder.group({
-      odoberania: new FormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
-      zmeny: new FormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
-      obnovenia: new FormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
-      pocetOdoberania: new FormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
-      pozorovatelia: new FormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
+      odoberania: new UntypedFormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
+      zmeny: new UntypedFormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
+      obnovenia: new UntypedFormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
+      pocetOdoberania: new UntypedFormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
+      pozorovatelia: new UntypedFormControl(null, [Validators.required,Validators.pattern("^[0-9]*$")]),
     });
   }
 
-  
+
   onSubmit(FormData) {
     console.log(FormData);
 
@@ -362,7 +351,7 @@ submited: boolean = false;
     let pocetOdoberania = FormData.pocetOdoberania
     let pozorovatelia = FormData.pozorovatelia
 
-   
+
     this.calculateValues(odoberania, zmeny, obnovenia, pocetOdoberania, pozorovatelia, GraphType.USER_DATA)
   }
 
@@ -559,7 +548,7 @@ combinationServ.addEventListener('click', () => {
     this.dv3a = this.calculateDV3A(this.dv1a, pozorovatelia)
     this.dcv3a = this.bytesToStringSize(this.dv3a);
 
-    let chartOptions = {   
+    let chartOptions = {
       chart: {
         type: "bar"
      },
@@ -569,10 +558,10 @@ combinationServ.addEventListener('click', () => {
      xAxis:{
         categories:["Služba"]
      },
-     yAxis: {          
+     yAxis: {
         title:{
            text:"Počet"
-        } 
+        }
      },
      series: [
        {
@@ -588,7 +577,7 @@ combinationServ.addEventListener('click', () => {
     this.percentageDifference = this.calculatePercentageDifference(this.dv1, this.v1);
 
 
-    let chartOptions1 = {   
+    let chartOptions1 = {
       chart: {
         type: "bar"
      },
@@ -598,10 +587,10 @@ combinationServ.addEventListener('click', () => {
      xAxis:{
         categories:["Služba"]
      },
-     yAxis: {          
+     yAxis: {
         title:{
            text:"Veľkosť správ v bajtoch"
-        } 
+        }
      },
      series: [
        {
@@ -651,7 +640,7 @@ combinationServ.addEventListener('click', () => {
     this.nv3a = this.calculateV3A(this.nv1a, pozorovatelia)
     this.ncv3a = this.bytesToStringSize(this.nv3a);
 
-    let chartOptions2 =  {   
+    let chartOptions2 =  {
       chart: {
         type: "bar"
      },
@@ -661,10 +650,10 @@ combinationServ.addEventListener('click', () => {
      xAxis:{
         categories:["Služba"]
      },
-     yAxis: {          
+     yAxis: {
         title:{
            text:"Počet"
-        } 
+        }
      },
      series: [
        {
@@ -679,7 +668,7 @@ combinationServ.addEventListener('click', () => {
     };
     this.percentageDifference2 = this.calculatePercentageDifference(this.nv1, this.v1);
 
-    let chartOptions3 =  {   
+    let chartOptions3 =  {
     chart: {
       type: "bar"
     },
@@ -689,10 +678,10 @@ combinationServ.addEventListener('click', () => {
     xAxis:{
       categories:["Služba"]
     },
-    yAxis: {          
+    yAxis: {
       title:{
         text:"Veľkosť správ v bajtoch"
-      } 
+      }
     },
     series: [
      {
@@ -703,7 +692,7 @@ combinationServ.addEventListener('click', () => {
      name: 'Optimalizácia služby NOTIFY',
      data: [this.nv1a]
     }
-    ]  
+    ]
     }
     this.percentageDifference3 = this.calculatePercentageDifference(this.nv1a, this.v1a);
 
@@ -757,7 +746,7 @@ combinationServ.addEventListener('click', () => {
     this.pv3a = this.calculateV3A(this.pv1a, pozorovatelia)
     this.pcv3a = this.bytesToStringSize(this.pv3a);
 
-    let chartOptions4 =  {   
+    let chartOptions4 =  {
       chart: {
         type: "bar"
      },
@@ -767,10 +756,10 @@ combinationServ.addEventListener('click', () => {
      xAxis:{
         categories:["Služba"]
      },
-     yAxis: {          
+     yAxis: {
         title:{
            text:"Počet"
-        } 
+        }
      },
      series: [
        {
@@ -785,7 +774,7 @@ combinationServ.addEventListener('click', () => {
     };
     this.percentageDifference4 = this.calculatePercentageDifference(this.pv1, this.v1);
 
-    let chartOptions5 =  {   
+    let chartOptions5 =  {
     chart: {
       type: "bar"
     },
@@ -795,10 +784,10 @@ combinationServ.addEventListener('click', () => {
     xAxis:{
       categories:["Služba"]
     },
-    yAxis: {          
+    yAxis: {
       title:{
         text:"Veľkosť správ v bajtoch"
-      } 
+      }
     },
     series: [
      {
@@ -809,7 +798,7 @@ combinationServ.addEventListener('click', () => {
      name: 'Čiastočná optimalizácia NOTIFY',
      data: [this.pv1a]
     }
-    ]  
+    ]
     }
     this.percentageDifference5 = this.calculatePercentageDifference(this.pv1a, this.v1a);
 
@@ -863,7 +852,7 @@ combinationServ.addEventListener('click', () => {
     this.bv3a = this.calculateDV3A(this.bv1a, pozorovatelia)
     this.bcv3a = this.bytesToStringSize(this.bv3a);
 
-    let chartOptions6 = {   
+    let chartOptions6 = {
       chart: {
         type: "bar"
      },
@@ -873,10 +862,10 @@ combinationServ.addEventListener('click', () => {
      xAxis:{
         categories:["Služba"]
      },
-     yAxis: {          
+     yAxis: {
         title:{
            text:"Počet"
-        } 
+        }
      },
      series: [
        {
@@ -891,7 +880,7 @@ combinationServ.addEventListener('click', () => {
     }
     this.percentageDifference6 = this.calculatePercentageDifference(this.bv1, this.v1);
 
-    let chartOptions7 = {   
+    let chartOptions7 = {
       chart: {
         type: "bar"
      },
@@ -901,10 +890,10 @@ combinationServ.addEventListener('click', () => {
      xAxis:{
         categories:["Služba"]
      },
-     yAxis: {          
+     yAxis: {
         title:{
           text:"Veľkosť správ v bajtoch"
-        } 
+        }
      },
      series: [
        {
@@ -946,19 +935,19 @@ combinationServ.addEventListener('click', () => {
     return number1 * number2 * number3
   }
   calculateP6(number1: number, number2: number) {
-    return Math.floor(number1 * number2) 
+    return Math.floor(number1 * number2)
   }
   calculateP6A(number1: number, number2: number, number3: number) {
     return number1 * number2 * number3
   }
   calculateP7(number1: number, number2: number) {
-    return Math.floor(number1 * number2) 
+    return Math.floor(number1 * number2)
   }
   calculateP7A(number1: number, number2: number, number3: number, number4: number) {
     return (number1 * number2 * (number3 + number4))
   }
   calculateP8(number1: number, number2: number) {
-    return Math.floor(number1 * number2) 
+    return Math.floor(number1 * number2)
   }
   calculateP8A(number1: number, number2: number, number3: number) {
     return number1 * number2 * number3
@@ -994,12 +983,12 @@ combinationServ.addEventListener('click', () => {
       return (number1 * (number2 * number3 -2) * number4 * number5)
   }
   calculateU9(number1: number, number2: number) {
-    return Math.floor(number1 + number2) 
+    return Math.floor(number1 + number2)
   }
   calculateU9A(number1: number, number2: number) {
-    return number1 + number2 
+    return number1 + number2
   }
-  calculateU10(number1: number, number2: number, number3: number, number4: number) { 
+  calculateU10(number1: number, number2: number, number3: number, number4: number) {
     if(number3 == 0){
       return (0)
     }
@@ -1012,7 +1001,7 @@ combinationServ.addEventListener('click', () => {
   calculateU10A(number1: number, number2: number, number3: number, number4: number, number5: number) {
     if(number3 == 0){
       return (0)
-    }  
+    }
     else if ((number1 * (((number2/number3)-1) * number4) * number5) < 0){
       return ((number1 * (((number2/number3)-1) * number4) * number5)*(-1))
       }
@@ -1021,7 +1010,7 @@ combinationServ.addEventListener('click', () => {
   calculateU11(number1: number, number2: number, number3: number, number4: number) {
     if(number3 == 0){
       return (0)
-    }  
+    }
     else if ((number1 * (((number2/number3)-1) * number4)) < 0){
       return Math.floor((number1 * (((number2/number3)-1) * number4))*(-1))
       }
@@ -1030,7 +1019,7 @@ combinationServ.addEventListener('click', () => {
   calculateU11A(number1: number, number2: number, number3: number, number4: number, number5: number) {
     if(number3 == 0){
       return (0)
-    }  
+    }
     else if ((number1 * (((number2/number3)-1) * number4) * number5) < 0){
       return ((number1 * (((number2/number3)-1) * number4) * number5)*(-1))
       }
@@ -1039,7 +1028,7 @@ combinationServ.addEventListener('click', () => {
   calculateU12(number1: number, number2: number, number3: number, number4: number) {
     if(number3 == 0){
       return (0)
-    }  
+    }
     else if ((number1 * (((number2/number3)-1) * number4)) < 0){
       return Math.floor((number1 * (((number2/number3)-1) * number4))*(-1))
       }
@@ -1048,7 +1037,7 @@ combinationServ.addEventListener('click', () => {
   calculateU12A(number1: number, number2: number, number3: number, number4: number, number5: number, number6: number) {
     if(number3 == 0){
       return (0)
-    }  
+    }
     else if ((number1 * (((number2/number3)-1) * number4) * (number5 + number6)) < 0){
       return ((number1 * (((number2/number3)-1) * number4) * (number5 + number6))*(-1))
       }
@@ -1057,7 +1046,7 @@ combinationServ.addEventListener('click', () => {
   calculateU13(number1: number, number2: number, number3: number, number4: number) {
     if(number3 == 0){
       return (0)
-    }  
+    }
     else if ((number1 * (((number2/number3)-1) * number4)) < 0){
       return Math.floor((number1 * (((number2/number3)-1) * number4))*(-1))
       }
@@ -1066,7 +1055,7 @@ combinationServ.addEventListener('click', () => {
   calculateU13A(number1: number, number2: number, number3: number, number4: number, number5: number) {
     if(number3 == 0){
       return (0)
-    }  
+    }
     else if ((number1 * (((number2/number3)-1) * number4) * number5) < 0){
       return ((number1 * (((number2/number3)-1) * number4) * number5)*(-1))
       }
@@ -1079,10 +1068,10 @@ combinationServ.addEventListener('click', () => {
     return number1 + number2 + number3 + number4
   }
   calculateU15(number1: number, number2: number) {
-    return Math.floor(number1 + number2) 
+    return Math.floor(number1 + number2)
   }
   calculateU15A(number1: number, number2: number) {
-    return number1 + number2 
+    return number1 + number2
   }
 
   calculateV1(number1: number, number2: number, number3: number) {
@@ -1124,19 +1113,19 @@ combinationServ.addEventListener('click', () => {
     return number1 * number2 * number3
   }
   calculateDP6(number1: number, number2: number) {
-    return Math.floor(number1 * number2) 
+    return Math.floor(number1 * number2)
   }
   calculateDP6A(number1: number, number2: number, number3: number) {
     return number1 * number2 * number3
   }
   calculateDP7(number1: number, number2: number) {
-    return Math.floor(number1 * number2) 
+    return Math.floor(number1 * number2)
   }
   calculateDP7A(number1: number, number2: number, number3: number, number4: number, number5: number) {
     return ((number1 * number2 * (number3 + 144 + 144))+(number1 * number2 * number5 * (number4 + 160 + 144)))
   }
   calculateDP8(number1: number, number2: number) {
-    return Math.floor(number1 * number2) 
+    return Math.floor(number1 * number2)
   }
   calculateDP8A(number1: number, number2: number, number3: number) {
     return number1 * number2 * number3
@@ -1173,15 +1162,15 @@ combinationServ.addEventListener('click', () => {
       return ((number1 * number4) * (number2 * number3 -2) * number5)
   }
   calculateDU9(number1: number, number2: number) {
-    return Math.floor(number1 + number2) 
+    return Math.floor(number1 + number2)
   }
   calculateDU9A(number1: number, number2: number) {
-    return number1 + number2 
+    return number1 + number2
   }
   calculateDU10(number1: number, number2: number, number3: number, number4: number) {
     if((number3) == 0){
       return (0)
-    }  
+    }
     else if (((((number2/number3)-1) * number4) * number1) < 0){
       return Math.floor(((((number2/number3)-1) * number4) * number1)*(-1))
       }
@@ -1190,7 +1179,7 @@ combinationServ.addEventListener('click', () => {
   calculateDU10A(number1: number, number2: number, number3: number, number4: number, number5: number) {
     if((number3) == 0){
       return (0)
-    }    
+    }
     else if ((number1 * (((number2/number3)-1) * number4) * number5) < 0){
       return ((number1 * (((number2/number3)-1) * number4) * number5)*(-1))
       }
@@ -1199,7 +1188,7 @@ combinationServ.addEventListener('click', () => {
   calculateDU11(number1: number, number2: number, number3: number, number4: number) {
     if((number3) == 0){
       return (0)
-    }    
+    }
     else if ((number1 * (((number2/number3)-1) * number4)) < 0){
       return Math.floor((number1 * (((number2/number3)-1) * number4))*(-1))
       }
@@ -1208,7 +1197,7 @@ combinationServ.addEventListener('click', () => {
   calculateDU11A(number1: number, number2: number, number3: number, number4: number, number5: number) {
     if((number3) == 0){
       return (0)
-    }    
+    }
     else if ((number1 * (((number2/number3)-1) * number4) * number5) < 0){
       return ((number1 * (((number2/number3)-1) * number4) * number5)*(-1))
       }
@@ -1217,7 +1206,7 @@ combinationServ.addEventListener('click', () => {
   calculateDU12(number1: number, number2: number, number3: number, number4: number) {
     if((number3) == 0){
       return (0)
-    }    
+    }
     else if ((number1 * (((number2/number3)-1) * number4)) < 0){
       return Math.floor((number1 * (((number2/number3)-1) * number4))*(-1))
       }
@@ -1226,7 +1215,7 @@ combinationServ.addEventListener('click', () => {
   calculateDU12A(number1: number, number2: number, number3: number, number4: number, number5: number, number6: number) {
     if((number3) == 0){
       return (0)
-    }    
+    }
     else if ((number1 * ((((number2/number3)-1)) * ((number5 + 144 + 144) + (number4 * (number6 + 160 + 144))))) < 0){
       return ((number1 * ((((number2/number3)-1)) * ((number5 + 144 + 144) + (number4 * (number6 + 160 + 144)))))*(-1))
       }
@@ -1235,7 +1224,7 @@ combinationServ.addEventListener('click', () => {
   calculateDU13(number1: number, number2: number, number3: number, number4: number) {
     if((number3) == 0){
       return (0)
-    }    
+    }
     else if ((number1 * (((number2/number3)-1) * number4)) < 0){
       return Math.floor((number1 * (((number2/number3)-1) * number4))*(-1))
       }
@@ -1244,7 +1233,7 @@ combinationServ.addEventListener('click', () => {
   calculateDU13A(number1: number, number2: number, number3: number, number4: number, number5: number) {
     if((number3) == 0){
       return (0)
-    }    
+    }
     else if ((number1 * (((number2/number3)-1) * number4) * number5) < 0){
       return ((number1 * (((number2/number3)-1) * number4) * number5)*(-1))
       }
@@ -1257,10 +1246,10 @@ combinationServ.addEventListener('click', () => {
     return number1 + number2 + number3 + number4
   }
   calculateDU15(number1: number, number2: number) {
-    return Math.floor(number1 + number2) 
+    return Math.floor(number1 + number2)
   }
   calculateDU15A(number1: number, number2: number) {
-    return number1 + number2 
+    return number1 + number2
   }
 
   calculateDV1(number1: number, number2: number, number3: number) {
@@ -1272,25 +1261,25 @@ combinationServ.addEventListener('click', () => {
   calculateDV2(number1: number, number2: number, number3: number, number4: number) {
     if((number2 * number3 * number4) == 0){
       return (0)
-    }  
+    }
     else return Math.floor(number1 / (number2 * number3 * number4))
   }
   calculateDV2A(number1: number, number2: number, number3: number, number4: number) {
     if((number2 * number3 * number4) == 0){
       return (0)
-    } 
+    }
     else return (number1 / (number2 * number3 * number4))
   }
   calculateDV3(number1: number, number2: number) {
     if((number2) == 0){
       return (0)
-    } 
+    }
     else return Math.floor(number1 / number2 )
   }
   calculateDV3A(number1: number, number2: number) {
     if((number2) == 0){
       return (0)
-    } 
+    }
     else return (number1 / number2)
   }
 
@@ -1320,7 +1309,7 @@ combinationServ.addEventListener('click', () => {
   };
 
   highcharts: typeof Highcharts = Highcharts;
-  firstChartOptions =  {   
+  firstChartOptions =  {
     chart: {
       type: "bar"
    },
@@ -1330,10 +1319,10 @@ combinationServ.addEventListener('click', () => {
    xAxis:{
       categories:["Služba"]
    },
-   yAxis: {          
+   yAxis: {
       title:{
          text:"Počet"
-      } 
+      }
    },
    series: [
      {
@@ -1346,7 +1335,7 @@ combinationServ.addEventListener('click', () => {
   }
    ]
 };
-secondChartOptions =  {   
+secondChartOptions =  {
   chart: {
     type: "bar"
  },
@@ -1356,10 +1345,10 @@ secondChartOptions =  {
  xAxis:{
     categories:["Služba"]
  },
- yAxis: {          
+ yAxis: {
     title:{
        text:"Veľkosť"
-    } 
+    }
  },
  series: [
    {
@@ -1373,7 +1362,7 @@ secondChartOptions =  {
  ]
 
 };
-thirdChartOptions =  {   
+thirdChartOptions =  {
   chart: {
     type: "bar"
  },
@@ -1383,10 +1372,10 @@ thirdChartOptions =  {
  xAxis:{
     categories:["Služba"]
  },
- yAxis: {          
+ yAxis: {
     title:{
        text:"Počet"
-    } 
+    }
  },
  series: [
    {
@@ -1399,7 +1388,7 @@ thirdChartOptions =  {
 }
  ]
 };
-fourthChartOptions =  {   
+fourthChartOptions =  {
 chart: {
   type: "bar"
 },
@@ -1409,10 +1398,10 @@ title: {
 xAxis:{
   categories:["Služba"]
 },
-yAxis: {          
+yAxis: {
   title:{
      text:"Veľkosť"
-  } 
+  }
 },
 series: [
  {
@@ -1424,9 +1413,9 @@ series: [
  data: [this.nv1a]
 }
 ]
-  
+
 };
-fifthChartOptions =  {   
+fifthChartOptions =  {
   chart: {
     type: "bar"
  },
@@ -1436,10 +1425,10 @@ fifthChartOptions =  {
  xAxis:{
     categories:["Služba"]
  },
- yAxis: {          
+ yAxis: {
     title:{
        text:"Počet"
-    } 
+    }
  },
  series: [
    {
@@ -1452,7 +1441,7 @@ fifthChartOptions =  {
 }
  ]
 };
-sixthChartOptions =  {   
+sixthChartOptions =  {
 chart: {
   type: "bar"
 },
@@ -1462,10 +1451,10 @@ title: {
 xAxis:{
   categories:["Služba"]
 },
-yAxis: {          
+yAxis: {
   title:{
      text:"Veľkosť"
-  } 
+  }
 },
 series: [
   {
@@ -1478,7 +1467,7 @@ series: [
 }
 ]
 };
-seventhChartOptions =  {   
+seventhChartOptions =  {
   chart: {
     type: "bar"
   },
@@ -1488,10 +1477,10 @@ seventhChartOptions =  {
   xAxis:{
     categories:["Služba"]
   },
-  yAxis: {          
+  yAxis: {
     title:{
        text:"Veľkosť"
-    } 
+    }
   },
   series: [
     {
@@ -1504,7 +1493,7 @@ seventhChartOptions =  {
   }
   ]
   };
-  eightChartOptions =  {   
+  eightChartOptions =  {
     chart: {
       type: "bar"
     },
@@ -1514,10 +1503,10 @@ seventhChartOptions =  {
     xAxis:{
       categories:["Služba"]
     },
-    yAxis: {          
+    yAxis: {
       title:{
          text:"Veľkosť"
-      } 
+      }
     },
     series: [
       {
