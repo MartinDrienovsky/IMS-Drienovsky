@@ -13,8 +13,7 @@ import { ContactService } from './contact.service';
 import { DialogComponent } from './contact-form/dialog/dialog.component';
 import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 import { CalculateModelComponent } from './calculate-model/calculate-model.component';
-// TODO@martind
-// import { HighchartsChartModule } from 'highcharts-angular';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,7 @@ import { CalculateModelComponent } from './calculate-model/calculate-model.compo
     BrowserAnimationsModule,
     AppRoutingModule,
     MatDialogModule,
-    // TODO@martind
-    // HighchartsChartModule,
+    HighchartsChartModule,
   ],
   providers: [ContactService],
   bootstrap: [AppComponent],

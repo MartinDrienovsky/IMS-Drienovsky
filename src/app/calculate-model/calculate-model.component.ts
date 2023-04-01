@@ -1,10 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-// TODO@martind
-// import * as Highcharts from 'highcharts';
-// import HC_exporting from 'highcharts/modules/exporting';
-// import { Chart } from 'highcharts';
-// import { HighchartsChartComponent } from 'highcharts-angular';
+
+import * as Highcharts from 'highcharts';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -13,8 +10,6 @@ import {
 } from '@angular/forms';
 import {
   MatLegacyDialog as MatDialog,
-  MatLegacyDialogRef as MatDialogRef,
-  MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
 } from '@angular/material/legacy-dialog';
 
 enum GraphType {
@@ -26,15 +21,7 @@ enum GraphType {
 @Component({
   selector: 'app-calculate-model',
   templateUrl: './calculate-model.component.html',
-  styleUrls: ['./calculate-model.component.css'],
-  // TODO@martind
-  // template: `
-  //   <highcharts-chart
-  //     [Highcharts]="Highcharts"
-  //     [options]="chartOptions"
-  //     style="width: 100%; height: 400px; display: block;">
-  //   </highcharts-chart>
-  // `
+  styleUrls: ['./calculate-model.component.css']
 })
 
 
@@ -1321,8 +1308,7 @@ combinationServ.addEventListener('click', () => {
     }
   };
 
-  // TODO@martind
-  // highcharts: typeof Highcharts = Highcharts;
+  highcharts: typeof Highcharts = Highcharts;
   firstChartOptions =  {
     chart: {
       type: "bar"
