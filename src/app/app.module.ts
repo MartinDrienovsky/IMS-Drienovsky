@@ -14,6 +14,9 @@ import { DialogComponent } from './contact-form/dialog/dialog.component';
 import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 import { CalculateModelComponent } from './calculate-model/calculate-model.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +35,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     AppRoutingModule,
     MatDialogModule,
     HighchartsChartModule,
+    MatSlideToggleModule,
+    MatTabsModule
   ],
   providers: [ContactService],
   bootstrap: [AppComponent],
