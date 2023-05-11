@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
+
 import * as Highcharts from 'highcharts';
 import {
   UntypedFormBuilder,
@@ -37,6 +38,8 @@ export class CalculateModelComponent implements OnInit {
   percentageDifference5: number;
   percentageDifference6: number;
   percentageDifference7: number;
+  percentageDifference10: number;
+  percentageDifference11: number;
   constructor(
     private builder: UntypedFormBuilder,
     private httpClient: HttpClient,
@@ -186,6 +189,79 @@ dcv2a: string
 dv3: number = 0;
 dv3a: number = 0;
 dcv3a: string
+
+// Potvrdenie prijatia spravy
+//
+ap5: number = 0;
+ap5a: number = 0;
+acp5a: string
+ap6: number = 0;
+ap6a: number = 0;
+acp6a: string
+ap7: number = 0;
+ap7a: number = 0;
+acp7a: string
+ap8: number = 0;
+ap8a: number = 0;
+acp8a: string
+ap9: number = 0;
+ap9a: number = 0;
+acp9a: string
+
+au7: number = 0;
+au7a: number = 0;
+acu7a: string
+au8: number = 0;
+au8a: number = 0;
+acu8a: string
+au9: number = 0;
+au9a: number = 0;
+acu9a: string
+au10: number = 0;
+au10a: number = 0;
+acu10a: string
+au11: number = 0;
+au11a: number = 0;
+acu11a: string
+au12: number = 0;
+au12a: number = 0;
+acu12a: string
+au13: number = 0;
+au13a: number = 0;
+acu13a: string
+au14: number = 0;
+au14a: number = 0;
+acu14a: string
+au15: number = 0;
+au15a: number = 0;
+acu15a: string
+
+az5: number = 0;
+az5a: number = 0;
+acz5a: string
+az6: number = 0;
+az6a: number = 0;
+acz6a: string
+az7: number = 0;
+az7a: number = 0;
+acz7a: string
+az8: number = 0;
+az8a: number = 0;
+acz8a: string
+az9: number = 0;
+az9a: number = 0;
+acz9a: string
+
+av1: number = 0;
+av1a: number = 0;
+acv1a: string
+av2: number = 0;
+av2a: number = 0;
+acv2a: string
+av3: number = 0;
+av3a: number = 0;
+acv3a: string
+//
 
 // Notify optimized
 // n - optimalizacia notify
@@ -357,55 +433,6 @@ submited: boolean = false;
 
   calculateValues(odoberania: number, zmeny: number, obnovenia: number, pocetOdoberania: number, pozorovatelia: number, graphType: GraphType){
 
-    // Get references to the navigation links
-const baseServ = document.getElementById('baseServ') as HTMLAnchorElement;
-const dialogServ = document.getElementById('dialogServ') as HTMLAnchorElement;
-const notifyServ = document.getElementById('notifyServ') as HTMLAnchorElement;
-const partialServ = document.getElementById('partialServ') as HTMLAnchorElement;
-const combinationServ = document.getElementById('combinationServ') as HTMLAnchorElement;
-
-// Get references to the hidden HTML fields
-const home = document.getElementById('home') as HTMLElement;
-const about = document.getElementById('about') as HTMLElement;
-const services = document.getElementById('services') as HTMLElement;
-const contact = document.getElementById('contact') as HTMLElement;
-const contacts = document.getElementById('contact') as HTMLElement;
-
-// Add event listeners to the navigation links
-baseServ.addEventListener('click', () => {
-  home.style.display = 'block';
-  about.style.display = 'none';
-  services.style.display = 'none';
-  contact.style.display = 'none';
-});
-
-dialogServ.addEventListener('click', () => {
-  home.style.display = 'none';
-  about.style.display = 'block';
-  services.style.display = 'none';
-  contact.style.display = 'none';
-});
-
-notifyServ.addEventListener('click', () => {
-  home.style.display = 'none';
-  about.style.display = 'none';
-  services.style.display = 'block';
-  contact.style.display = 'none';
-});
-
-partialServ.addEventListener('click', () => {
-  home.style.display = 'none';
-  about.style.display = 'none';
-  services.style.display = 'none';
-  contact.style.display = 'block';
-});
-
-combinationServ.addEventListener('click', () => {
-  home.style.display = 'none';
-  about.style.display = 'none';
-  services.style.display = 'none';
-  contact.style.display = 'block';
-});
     // Non optimized
     this.p5 = this.calculateP5(pozorovatelia, pocetOdoberania)
     this.p5a = this.calculateP5A(pozorovatelia, pocetOdoberania, 450)
@@ -476,7 +503,135 @@ combinationServ.addEventListener('click', () => {
     this.v3 = this.calculateV3(this.v1, pozorovatelia)
     this.v3a = this.calculateV3A(this.v1a, pozorovatelia)
     this.cv3a = this.bytesToStringSize(this.v3a);
+    //
+    // OPtimalizacia potvrdenia spravy
+    this.ap5 = this.calculateP5(pozorovatelia, pocetOdoberania)
+    this.ap5a = this.calculateP5A(pozorovatelia, pocetOdoberania, 450)
+    this.acp5a = this.bytesToStringSize(this.ap5a);
+    this.ap6 = this.calculateP6(0, 0)
+    this.ap6a = this.calculateP6A(0, 0, 0)
+    this.acp6a = this.bytesToStringSize(this.ap6a);
+    this.ap7 = this.calculateP7(pozorovatelia, pocetOdoberania)
+    this.ap7a = this.calculateP7A(pocetOdoberania, pozorovatelia, 500, 5000)
+    this.acp7a = this.bytesToStringSize(this.ap7a);
+    this.ap8 = this.calculateP8(0, 0)
+    this.ap8a = this.calculateP8A(0, 0, 0)
+    this.acp8a = this.bytesToStringSize(this.ap8a);
+    this.ap9 = this.calculateP9(this.ap5, this.ap6, this.ap7, this.ap8)
+    this.ap9a = this.calculateP9A(this.ap5a, this.ap6a, this.ap7a, this.ap8a)
+    this.acp9a = this.bytesToStringSize(this.ap9a);
 
+    this.au7 = this.calculateU7(pozorovatelia, odoberania, zmeny, pocetOdoberania)
+    this.au7a = this.calculateU7A(pozorovatelia, pocetOdoberania, 500, 5000, odoberania, zmeny)
+    this.acu7a = this.bytesToStringSize(this.au7a);
+    this.au8 = this.calculateU8(0, 0, 0, 0)
+    this.au8a = this.calculateU8A(0, 0, 0, 0, 0)
+    this.acu8a = this.bytesToStringSize(this.au8a);
+    this.au9 = this.calculateU9(this.au7, this.au8)
+    this.au9a = this.calculateU9A(this.au7a, this.au8a)
+    this.acu9a = this.bytesToStringSize(this.au9a);
+    this.au10 = this.calculateU10(pozorovatelia, odoberania, obnovenia, pocetOdoberania)
+    this.au10a = this.calculateU10A(pozorovatelia, odoberania, obnovenia, pocetOdoberania, 450)
+    this.acu10a = this.bytesToStringSize(this.au10a);
+    this.au11 = this.calculateU11(0, 0, 0, 0)
+    this.au11a = this.calculateU11A(0, 0, 0, 0, 0)
+    this.acu11a = this.bytesToStringSize(this.au11a);
+    this.au12 = this.calculateU12(pozorovatelia, odoberania, obnovenia, pocetOdoberania)
+    this.au12a = this.calculateU12A(pozorovatelia, odoberania, obnovenia, pocetOdoberania, 500, 5000)
+    this.acu12a = this.bytesToStringSize(this.au12a);
+    this.au13 = this.calculateU13(0, 0, 0, 0)
+    this.au13a = this.calculateU13A(0, 0, 0, 0, 0)
+    this.acu13a = this.bytesToStringSize(this.au13a);
+    this.au14 = this.calculateU14(this.au10, this.au11, this.au12, this.au13)
+    this.au14a = this.calculateU14A(this.au10a, this.au11a, this.au12a, this.au13a)
+    this.acu14a = this.bytesToStringSize(this.au14a);
+    this.au15 = this.calculateU15(this.au9, this.au14)
+    this.au15a = this.calculateU15A(this.au9a, this.au14a)
+    this.acu15a = this.bytesToStringSize(this.au15a);
+
+    this.az5 = this.calculateP5(pozorovatelia, pocetOdoberania)
+    this.az5a = this.calculateP5A(pozorovatelia, pocetOdoberania, 450)
+    this.acz5a = this.bytesToStringSize(this.az5a);
+    this.az6 = this.calculateP6(0, 0)
+    this.az6a = this.calculateP6A(0, 0, 0)
+    this.acz6a = this.bytesToStringSize(this.az6a);
+    this.az7 = this.calculateP7(pozorovatelia, pocetOdoberania)
+    this.az7a = this.calculateP7A( pocetOdoberania, pozorovatelia, 500, 5000)
+    this.acz7a = this.bytesToStringSize(this.az7a);
+    this.az8 = this.calculateP8(0, 0)
+    this.az8a = this.calculateP8A(0, 0, 0)
+    this.acz8a = this.bytesToStringSize(this.az8a);
+    this.az9 = this.calculateP9(this.az5, this.az6, this.az7, this.az8)
+    this.az9a = this.calculateP9A(this.az5a, this.az6a, this.az7a, this.az8a)
+    this.acz9a = this.bytesToStringSize(this.az9a);
+
+    this.av1 = this.calculateV1(this.ap9, this.au15, this.az9)
+    this.av1a = this.calculateV1A(this.ap9a, this.au15a, this.az9a)
+    this.acv1a = this.bytesToStringSize(this.av1a);
+    this.av2 = this.calculateV2(this.av1, 60, 60, odoberania)
+    this.av2a = this.calculateV2A(this.av1a, 60, 60, odoberania)
+    this.acv2a = this.bytesToStringSize(this.v2a);
+    this.av3 = this.calculateV3(this.av1, pozorovatelia)
+    this.av3a = this.calculateV3A(this.av1a, pozorovatelia)
+    this.acv3a = this.bytesToStringSize(this.av3a);
+
+    let chartOptions10 = {
+      chart: {
+        type: "bar"
+     },
+     title: {
+        text: "Počet poslaných správ"
+     },
+     xAxis:{
+        categories:["Služba"]
+     },
+     yAxis: {
+        title:{
+           text:"Počet"
+        }
+     },
+     series: [
+       {
+         name: 'Neoptimalizovaná služba',
+         data: [this.v1]
+      },
+      {
+       name: 'Služba optimalizovaná neprítomnosťou potvrdenia prijatia správy',
+       data: [this.av1]
+    }
+     ]
+    }
+    this.percentageDifference10 = this.calculatePercentageDifference(this.av1, this.v1);
+
+
+    let chartOptions11 = {
+      chart: {
+        type: "bar"
+     },
+     title: {
+        text: "Veľkosť poslaných správ"
+     },
+     xAxis:{
+        categories:["Služba"]
+     },
+     yAxis: {
+        title:{
+           text:"Veľkosť správ v bajtoch"
+        }
+     },
+     series: [
+       {
+         name: 'Neoptimalizovaná služba',
+         data: [this.v1a]
+      },
+      {
+       name: 'Služba optimalizovaná neprítomnosťou potvrdenia prijatia správy',
+       data: [this.av1a]
+    }
+     ]
+    }
+    this.percentageDifference11 = this.calculatePercentageDifference(this.av1a, this.v1a);
+//
     // Dialog optimized
     this.dp5 = this.calculateDP5(pozorovatelia, 1)
     this.dp5a = this.calculateDP5A(pozorovatelia, 1, 450)
@@ -918,6 +1073,8 @@ combinationServ.addEventListener('click', () => {
         this.sixthChartOptions = chartOptions5
         this.seventhChartOptions = chartOptions6
         this.eightChartOptions = chartOptions7
+        this.firstChartOptions1 = chartOptions10
+        this.secondChartOptions1 = chartOptions11
         break
       case GraphType.USER_DATA:
        this.secondChartOptions = chartOptions1
@@ -1519,4 +1676,60 @@ seventhChartOptions =  {
     }
     ]
     };
+
+    firstChartOptions1 =  {
+      chart: {
+        type: "bar"
+     },
+     title: {
+        text: "Počet poslaných správ"
+     },
+     xAxis:{
+        categories:["Služba"]
+     },
+     yAxis: {
+        title:{
+           text:"Počet"
+        }
+     },
+     series: [
+       {
+         name: 'Neoptimalizovaná služba',
+         data: [this.v1]
+      },
+      {
+       name: 'Služba optimalizovaná neprítomnosťou potvrdenia prijatia správy',
+       data: [this.av1]
+    }
+     ]
+  };
+  secondChartOptions1 =  {
+    chart: {
+      type: "bar"
+   },
+   title: {
+      text: "Veľkosť poslaných správ"
+   },
+   xAxis:{
+      categories:["Služba"]
+   },
+   yAxis: {
+      title:{
+         text:"Veľkosť"
+      }
+   },
+   series: [
+     {
+       name: 'Neoptimalizovaná služba',
+       data: [this.v1a]
+    },
+    {
+     name: 'Služba optimalizovaná neprítomnosťou potvrdenia prijatia správy',
+     data: [this.av1a]
+  }
+   ]
+  
+  };
+
+
 }

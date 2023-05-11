@@ -11,7 +11,17 @@ button { /* CSS reference for button component in contact.form.component.html */
   border-collapse: collapse;
   width: 200%;
 }*/
+.content {
+  max-width: 500px;
+  margin: auto;
+}
+.label {
+  text-align:center;
 
+}
+.mat-tab-group{
+  background-color: #ff0000;
+}
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
