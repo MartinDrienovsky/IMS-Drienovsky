@@ -63,7 +63,7 @@
         </div>
         <div class="imskoncept2">
           <br>
-          <img class="mx-auto md:object-scale-down" src="assets/Images/riadiacaaužívatelskarovina.png"
+          <img class="mx-auto md:object-scale-down" src="assets/Images/riadiacauzirovina.png"
             alt="Riadiaca a užívateľská rovina"><br>
         </div>
         <div class="imskoncept3 text-justify">
@@ -181,7 +181,7 @@
         </div>
         <div class="imsarch2">
           <br>
-          <img class="mx-auto md:object-scale-down" src="assets/Images/VrstvyIMSarchitektúry.png"
+          <img class="mx-auto md:object-scale-down" src="assets/Images/vrstvy.png"
             alt="Vrstvy IMS architektúry"><br>
         </div>
         <div class="arch2 text-justify">
@@ -229,7 +229,7 @@
         </div>
         <div class="imsarch2">
           <br>
-          <img class="mx-auto md:object-scale-down" src="assets/Images/Komuniikácia.png"
+          <img class="mx-auto md:object-scale-down" src="assets/Images/Komunikacia.png"
             alt="Komunikácia medzi jednotlivými entitami a koncovým zariadením"><br>
         </div>
         <div class="arch4 text-justify">
@@ -410,8 +410,39 @@
             V prípade, že sa napojíte na stretnutie tiež sa aktuálny status prítomnosti zmení na „Práve má stretnutie“.
             Dôležité je len ako veľmi služba prítomnosti interaguje s ostatnými službami. Status prítomnosti sa
             samozrejme automaticky systémom nastavuje hneď po prihlásení alebo po odhlásení užívateľa zo služby.
-            Výnimkou nie je ani systémom určená prítomnosť „Nevyrušovať“ pokiaľ je tak nastavené zariadenie užívateľa.
-            <br>
+            Výnimkou nie je ani systémom určená prítomnosť „Nevyrušovať“ pokiaľ je tak nastavené zariadenie užívateľa.<br>
+            Pre službu prítomnosti poznáme viaceré optimalizácie ako napríklad <b>optimalizácia DIALOG</b>, <b>optimalizácia potvrdenia prijatia správ</b>,
+            <b>optimalizácia NOTIFY</b> či <b>čiastočná optimalizácia NOTIFY správ</b>.
+            <h2 class="text-xl text-center my-6">Optimalizácia DIALOG</h2>
+        <div class="arch1 text-justify">
+          V IMS službe prítomnosti je optimalizácia DIALOG technika používaná na zníženie počtu správ SIP vymieňaných 
+          medzi používateľskými agentmi a sieťou počas nastavovania relácie. Používa sa na optimalizáciu výkonu siete 
+          IMS a na zníženie réžie signalizácie. Dialógová optimalizácia umožňuje spracovať viacero zdrojov v jednej správe SIP,
+           čím sa znižuje počet správ vymieňaných medzi používateľskými agentmi a sieťou. Pri využití optimalizácie DIALOG potrebujeme 
+           mať prístupný RLS. RLS je komponent, ktorý sa používa na správu a distribúciu zoznamov zdrojov alebo odberov pre viacerých pozorovateľov.
+            V kontexte služieb prítomnosti umožňuje RLS užívateľom prihlásiť sa na odber jedného URI, ktorý predstavuje zoznam zdrojov
+             (ako sú kontakty alebo informácie o prítomnosti), ktoré monitoruje alebo odoberá jeden pozorovateľ. RLS funguje ako centrálne
+              úložisko na správu a distribúciu týchto zoznamov. <br>
+          Keď sa v IMS použije optimalizácia DIALOG, odosiela sa dokument RLMI (Resource List Management Identifier),
+           aby sa uľahčilo riadenie viacerých zdrojov v rámci jednej správy SIP. Dokument RLMI je dokument XML,
+            ktorý obsahuje zoznam identifikátorov URI (Uniform Resource Identifiers), ktoré predstavujú spravované prostriedky.<br>
+        </div>
+        <h2 class="text-xl text-center my-6">Optimalizácia potvrdenia prijatia správy</h2>
+        Mnohými správami, ktoré SIP prenesie, sú odpovede „200 OK“, čo znamená, že požiadavka bola úspešná a relácia môže pokračovať.
+         V sieti založenej na TCP nie je táto správa nevyhnutne potrebná, pretože TCP poskytuje spoľahlivé doručovanie správ. 
+         Pri tejto optimalizácií teda predpokladáme, že nie je potrené na požiadavky odpovedať. V takomto optimalizovanom systéme sa vôbec neposialajú odpovede „200 OK“. 
+
+        <h2 class="text-xl text-center my-6">Optimalizácia NOTIFY</h2>
+        Cieľom optimalizácie NOTIFY je znížiť nadbytočné správy NOTIFY (notify_sub) pri obnove požiadavky SIP SUBSCRIBE
+         alebo ukončení predplatného, ak sa nezmenili žiadne udalosti od posledného odoslaného NOTIFY. Server môže odpovedať
+          s "200 OK" bez dodatočných informácií o udalosti, čo je výhodné, ak sa predplatenej udalosti menia zriedkavo alebo
+           zostáva stabilná v čase a minimalizuje množstvo dát odosielaných cez sieť.
+        <h2 class="text-xl text-center my-6">Čiastočná optimalizácia NOTIFY</h2>
+        Čiastočná optimalizácia NOTIFY je technika na zníženie množstva dát odosielaných cez sieť medzi serverom prítomnosti a klientmi.
+        Myšlienka čiastočnej optimalizácií NOTIFY je, že sa v oznámení odosielajú iba zmeny stavu prítomnosti používateľa. Napríklad,
+         ak sa stav používateľa zmení z „online“ na „zaneprázdnený“, služba prítomnosti pošle upozornenie, ktoré obsahuje iba zmenu stavu,
+          a nie celý objekt stavu prítomnosti.. Na implementáciu je potrebné sledovať
+          predchádzajúci stav a porovnať ho s aktuálnym stavom, čo môže zlepšiť výkon systému, ale vyžaduje zložitejšie spracovanie na strane klienta.
             <br>
         </div>
         <h2 class="text-3xl text-center my-6">Internetová televízia (IPTV)</h2>
@@ -508,7 +539,7 @@
       </p>
       
       <p class="datum">
-        Upravené: 27.02.2023
+        Upravené: 05.05.2023
       </p>
 
       <div
